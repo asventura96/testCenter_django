@@ -1,22 +1,24 @@
-"""
-URL configuration for testCenter_django project.
+# testCenter/urls.py
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+URLs do projeto siga.
+
+Este módulo configura as URLs para o projeto siga, incluindo as URLs do aplicativo alunos
+e as URLs para login e logout.
+"""
+
+from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
+    # URL para a interface Administrativa Django
     path('admin/', admin.site.urls),
+
+    # URL para a Página Inicial do Projeto
+    path('', home, name='home'),
+
+    # URLs de Login e Logout do Usuário
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
