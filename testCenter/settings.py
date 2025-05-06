@@ -10,12 +10,12 @@ configurações para o banco de dados, aplicativos instalados, middlewares e mui
 import os
 import environ
 
-# Inicializa o django-environ
-env = environ.Env()
-environ.Env.read_env()  # Lê o arquivo .env
-
 # Definição do diretório base do projeto (BASE_DIR)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Inicializa o django-environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Configuração da chave secreta (SECRET_KEY)
 SECRET_KEY = env('SECRET_KEY')
@@ -40,7 +40,7 @@ DATABASES = {
 # Configuração de cache
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
         'LOCATION': '127.0.0.1:11211',  # Endereço do servidor Memcached
     }
 }
@@ -94,9 +94,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        'libraries': {
-                'custom_filters': 'templatetags.custom_filters',
-            },
         },
     },
 ]
