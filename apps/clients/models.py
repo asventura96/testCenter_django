@@ -39,7 +39,7 @@ class Client(models.Model):
 
     def __str__(self):
         """ Retorna uma representação em string do objeto Cliente. """
-        return f'Aluno {self.uid}; {self.name}'
+        return f'Cliente: {self.uid} - {self.name}'
 
     class Meta:
         """Meta-informações para o modelo Client."""
