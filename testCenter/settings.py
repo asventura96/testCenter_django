@@ -177,7 +177,7 @@ SESSION_COOKIE_SAMESITE = 'Lax'  # Reduz o risco de vazamento de cookies em requ
 # Configuração do STATIC_ROOT para produção
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Configurações CSP (Content Security Policy)
+# Configuração do CSP (Content Security Policy)
 CONTENT_SECURITY_POLICY = {
     'DIRECTIVES': {
         'default-src': (
