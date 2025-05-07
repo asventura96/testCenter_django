@@ -1,0 +1,46 @@
+<!-- templates/home.html -->
+
+{% extends "base.html" %}
+
+{% block title %}VENTURIX - Projeto: Centro de Provas{% endblock %}
+
+{% block body_class %}body-home{% endblock %}
+
+{% block header_title %}Projeto: Centro de Provas{% endblock %}
+
+{% block content %}
+    <div class="container-home">
+        {% if request.user.is_authenticated %}
+            <p>Seja bem-vindo (a) ao VENTURIX - Projeto: Centro de Provas.</p>
+
+            <!-- Lista de aplicativos -->
+            <div class="app-grid">
+                <a href="/alunos" class="app-item">
+                    <i class="fa fa-user-graduate"></i>
+                    <p>Alunos</p>
+                </a>
+                <a href="/centroProva" class="app-item">
+                    <i class="fa fa-school"></i>
+                    <p>Centro de Provas</p>
+                </a>
+                <a href="/certificacao" class="app-item">
+                    <i class="fa fa-certificate"></i>
+                    <p>Certificações</p>
+                </a>
+                <a href="/certificador" class="app-item">
+                    <i class="fa fa-user-check"></i>
+                    <p>Certificadores</p>
+                </a>
+            </div>
+
+            <p>Você está logado como <strong>{{ request.user.first_name }} {{ request.user.last_name }}</strong>.</p>
+            <!-- Formulário de logout -->
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn-exit btn-orange">Logout</button>
+            </form>
+        {% else %}
+            <p>Você não está autenticado. <a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+    </div>
+{% endblock %}
