@@ -5,9 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGA - Login</title>
+    <title>Centro de Provas - Login</title>
     {% load static %}
-    {% load socialaccount %}
     <!-- Fontes e estilos CSS -->
     {% include 'css_includes.html' %}
 </head>
@@ -15,11 +14,11 @@
     <div class="login-container">
         <!-- Adicionando a imagem de destaque -->
         <div class="login-image">
-            <img src="/static/images/logo-siga-horizontal-negativo-preto.png" alt="Logo SIGA">
+            <img src="/static/images/VENTURIX Logo 8000x3125px.png" alt="Logo Venturix">
         </div>
 
         <div class="login-box">
-            <h2>Acesso ao SIGA</h2>
+            <h2>Acesso ao Centro de Provas</h2>
             <form method="post">
                 {% csrf_token %}
                 <div class="login-form-group">
@@ -32,10 +31,6 @@
                 </div>
                 <button type="submit" class="btn-access">Acessar</button>
             </form>
-            <!--<hr>
-            <div class="password-reset-link">
-                <a href="{% url 'password_reset' %}">Esqueceu sua senha?</a>
-            </div>-->
         </div>
     </div>
     <!-- Rodapé -->
