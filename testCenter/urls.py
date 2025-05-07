@@ -1,10 +1,7 @@
 # testCenter/urls.py
 
 """
-URLs do projeto siga.
-
-Este módulo configura as URLs para o projeto siga, incluindo as URLs do aplicativo alunos
-e as URLs para login e logout.
+URLs do projeto testCenter.
 """
 
 from django.contrib.auth import views as auth_views
