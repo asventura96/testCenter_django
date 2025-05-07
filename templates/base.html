@@ -1,0 +1,43 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VENTURIX - Projeto: Centro de Provas{% endblock %}</title>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    <!-- Fontes e estilos CSS -->
+    {% include 'css_includes.html' %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <!-- Cabeçalho Comum -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container-header">
+                <img src="/static/images/VENTURIX Logo 8000x3125px.png" alt="Logo Venturix" class="logo">
+            </div>
+            <h2 class="page-title">{% block header_title %}VENTURIX - Projeto: Centro de Provas{% endblock %}</h2>
+            <div class="btn-container-header">
+                <a class="btn-home btn-square btn-dark" href="{% url 'home' %}" accesskey="h"></a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Área exclusiva para conteúdo específico de cada página -->
+    {% block content %}
+    <!-- Aqui vai o conteúdo específico de cada página -->
+    {% endblock %}
+    
+    <!-- Rodapé -->
+    {% include 'includes/footer.html' %}
+    
+    <!-- Scripts -->
+    {% include 'js_includes.html' %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</body>
+{% csrf_token %}
+</html>
