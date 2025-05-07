@@ -58,7 +58,7 @@
 .btn-pdf {
     text-decoration: none;
     display: inline-block;
-    background-color: #1A4F45;
+    background-color: #FF8D37;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -94,7 +94,7 @@
 .btn-reset:hover,
 .btn-excel:hover,
 .btn-pdf:hover {
-    background-color: #3FB081;
+    background-color: #89D6FB;
 }
 
 .btn-home::before,
@@ -256,22 +256,22 @@
 
 /* Estilo para botões para fundos pretos */
 .btn-dark {
-    background-color: #3FB081;
+    background-color: #2ECC40;
     color: black;
 }
 
 .btn-dark:hover {
-    background-color: #E6B510;
+    background-color: #89D6FB;
 }
 
 /* Estilo para botões amarelos (#E6B510) */
-.btn-yellow {
-    background-color: #E6B510;
+.btn-orange {
+    background-color: #FF8D37;
     color: black;
 }
 
-.btn-yellow:hover {
-    background-color: #3FB081;
+.btn-orange:hover {
+    background-color: #D4F0FC;
     color: black;
 }
 
