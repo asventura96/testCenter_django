@@ -1,0 +1,33 @@
+/* IMPORTAÇÃO DE FONTES */
+@font-face {
+    font-family: 'Fredoka';
+    src: url('../fonts/Fredoka.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+/* IMPORTAR O CSS DO SELECT2 */
+@import url('/static/select2/css/select2.min.css');
+
+/* -----XXX-----XXX-----XXX-----XXX-----XXX----- */
+
+/* TÍTULOS E SUBTÍTULOS DAS PÁGINAS */
+.page-subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: black;
+    background-color: #E6B510;
+}
+
+/* ATALHOS DO ACCESSKEY */
+.accesskey {
+    text-decoration: underline;
+}

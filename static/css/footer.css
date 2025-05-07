@@ -1,0 +1,10 @@
+/* RODAPÉ DO SITE */
+
+footer {
+    margin-top: auto;
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
