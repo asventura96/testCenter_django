@@ -61,19 +61,6 @@
     margin: 0 auto;
 }
 
-.password-reset-link {
-    margin-top: 20px;
-}
-
-.password-reset-link a {
-    color: #1a4f45;
-    text-decoration: none;
-}
-
-.password-reset-link a:hover {
-    text-decoration: underline;
-}
-
 @media (max-width: 768px) {
     .login-box {
         padding: 20px;
