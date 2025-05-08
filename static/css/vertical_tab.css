@@ -1,0 +1,83 @@
+/* ABAS VERTICAIS */
+
+.container-verticalTab {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.01rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.verticalTab-sidebar {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.verticalTab {
+    display: flex;
+    align-items: left;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #3FB081;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.verticalTab i {
+    margin-right: 5px;
+    font-size: 24px;
+    color: black;
+}
+
+.verticalTab span {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: black;
+}
+
+.verticalTab:hover {
+    background-color: #E6B510;
+}
+
+.verticalTab:active {
+    background-color: white;
+}
+
+.verticalTab-content-wrapper {
+    width: 75%;
+    display: flex;
+    gap: 0.01rem;
+}
+
+.verticalTab-content {
+    flex: 1;
+    padding: 0;
+    color: white;
+    border: 2px solid #3FB081;
+}
+
+.verticalTab-content-title {
+    display: none;
+}
+.verticalTab-content-item {
+    display: none;
+}
+
+.verticalTab-content-item.active {
+    display: block;
+}
+
+.verticalTab-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+    width: auto;
+    padding: 1rem;
+}
