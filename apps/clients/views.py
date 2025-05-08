@@ -243,6 +243,9 @@ def client_edit(request, pk):
             'fields': [
                 form['idle'],
                 form['name'],
+                form['country'],
+                form['city'],
+                form['notes'],
             ]
         },
     ]
