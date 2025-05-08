@@ -1,0 +1,21 @@
+<!-- templates/clients/clients_detail.html -->
+
+{% extends "base.html" %}
+
+{% block title %}VENTURIX - Detalhes do Cliente{% endblock %}
+
+{% block body_class %}body-apps-detail{% endblock %}
+
+{% block header_title %}
+    Detalhes do Cliente<br>
+    <span class="apps-detail-subtitle">{{ client.uid }} | {{ client.name }}</span>
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/apps_detail.html' %}
+
+<!-- Modal Pop-up -->
+{% include 'includes/modals.html' %}
+
+{% endblock %}
