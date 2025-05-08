@@ -1,0 +1,24 @@
+<!-- templates/includes/search_fields.html -->
+
+<div class="apps-list-form-group-search">
+    {% for field in search_fields %}
+        <div class="apps-list-form-group-search-sub">
+            <input type="checkbox" id="check-{{ field.id }}" data-target="{{ field.id }}">
+            <label for="search-{{ field.id }}">{{ field.label }}</label>
+            {% if field.type == 'select' %}
+                <select name="{{ field.name }}" id="{{ field.id }}" class="{{ field.class|default:'select-search select2' }}">
+                    <option value="">Selecionar {{ field.label }}</option>
+                    {% for option in field.options %}
+                        <option value="{{ option.0 }}" {% if option.0 == field.selected %}selected{% endif %}>
+                            {{ option.1 }}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% elif field.type == 'daterange' %}
+                <input type="text" id="{{ field.id }}" name="{{ field.name }}" class="{{ field.class|default:'apps-list-search-form daterange' }}" placeholder="Selecione o período" value="{{ field.value }}">
+            {% elif field.type == 'text' %}
+                <input type="text" id="{{ field.id }}" name="{{ field.name }}" class="{{ field.class|default:'form-control' }}" placeholder="{{ field.label }}" value="{{ field.value }}">
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
