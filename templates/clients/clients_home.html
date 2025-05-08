@@ -1,0 +1,23 @@
+<!-- templates/centroProva/centroProva_home.html -->
+
+{% extends "base.html" %}
+
+{% block title %}VENTURIX - Gestão de Clientes{% endblock %}
+
+{% block body_class %}body-apps-home{% endblock %}
+
+{% block header_title %}Gestão de Clientes{% endblock %}
+
+{% block content %}
+
+<div class="container-home-apps">
+    <div class="column-home-apps">
+        <h3 class="home-apps-subtitle">Clientes</h3>
+        <div class="btn-group-home-apps">
+            <a href="{% url 'client_new' %}" class="btn-new btn-transparent" aria-label="Criar novo Cliente">Novo</a>
+            <a href="{% url 'client_list' %}" class="btn-list btn-transparent" aria-label="Localizar Cliente">Localizar</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
