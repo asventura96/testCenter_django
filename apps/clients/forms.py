@@ -6,6 +6,9 @@ Ele define os formulários para cadastro, edição e outras operações relacion
 """
 
 from django import forms
+
+from apps.utils.widgets import BooleanSelect
+
 from .models import Client
 
 class ClientForm(forms.ModelForm):
@@ -46,6 +49,14 @@ class ClientForm(forms.ModelForm):
             'rows': 4,
         }),
         required=False
+    )
+    idle = forms.BooleanField(
+        label="Cliente Inativo",
+        required=False,
+        widget=BooleanSelect(attrs={
+            'class': 'apps-form-input',
+            'id': 'client-idle',
+        })
     )
 
     class Meta:
