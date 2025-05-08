@@ -1,0 +1,22 @@
+<!-- templates/includes/pagination.html -->
+ 
+{% load custom_filters %}
+<div class="pagination-search">
+    <span class="step-links">
+        {% with query_params=request.GET.urlencode %}
+            {% if page_obj.has_previous %}
+                <a class="btn-first btn-circle btn-dark pagination-link" href="?page=1&{{ query_params|remove_page_param }}" title="Primeira Página"></a>
+                <a class="btn-previous btn-circle btn-dark pagination-link" href="?page={{ page_obj.previous_page_number }}&{{ query_params|remove_page_param }}" title="Página Anterior"></a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a class="btn-next btn-circle btn-dark pagination-link" href="?page={{ page_obj.next_page_number }}&{{ query_params|remove_page_param }}" title="Próxima Página"></a>
+                <a class="btn-last btn-circle btn-dark pagination-link" href="?page={{ page_obj.paginator.num_pages }}&{{ query_params|remove_page_param }}" title="Última Página"></a>
+            {% endif %}
+        {% endwith %}
+    </span>
+</div>
