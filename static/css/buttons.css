@@ -265,12 +265,12 @@
 }
 
 /* Estilo para botões amarelos (#E6B510) */
-.btn-orange {
+.btn-purple {
     background-color: #FF8D37;
     color: black;
 }
 
-.btn-orange:hover {
+.btn-purple:hover {
     background-color: #D4F0FC;
     color: black;
 }
@@ -278,12 +278,12 @@
 /* Estilo para botões transparentes */
 .btn-transparent {
     background-color: transparent;
-    color: #1A4F45;
+    color: #5D3FD3;
 }
 
 .btn-transparent:hover {
     background-color: transparent;
-    color: #3FB081;
+    color: #FF8D37;
 }
 
 /* Estilo para botões inativos */
