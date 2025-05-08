@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #1A4F45;
+    background-color: #2ECC40;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Montserrat', sans-serif;
 }
@@ -30,5 +30,5 @@
 .step-links .current {
     margin: 0 10px;
     font-weight: bold;
-    color: white;
+    color: black;
 }
