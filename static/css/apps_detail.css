@@ -1,6 +1,6 @@
 /* DETALHES DOS APPS */
 .body-apps-detail {
-    background-color: black;
+    background-color: #023047;
     color: #fff;
     font-size: 1rem;
 }
@@ -8,7 +8,7 @@
 .apps-detail-subtitle {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
-    color: #3FB081;
+    color: #2ECC40;
 }
 
 .container-apps-detail {
@@ -38,7 +38,7 @@
     margin-left: 0.6rem;
     margin-right: 0.6rem;
     font-size: 0.875rem;
-    border: 2px solid #E6B510;
+    border: 2px solid #89D6FB;
 }
 
 .apps-detail-label,
@@ -50,7 +50,7 @@
     font-family: 'Fredoka', sans-serif;
     font-weight: 500;
     color: black;
-    background-color: #E6B510;
+    background-color: #89D6FB;
 }
 
 .apps-detail-value {
@@ -66,7 +66,7 @@
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
-    border: 0.13rem solid #3FB081;
+    border: 0.13rem solid #2ECC40;
     overflow-x: auto;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .apps-detail-sub-section-title {
-    background-color: #3FB081;
+    background-color: #2ECC40;
     color: black;
     padding: 0.625rem;
     width: 100%;
@@ -107,7 +107,7 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    border: 0.13rem solid #E6B510;
+    border: 0.13rem solid #FF8D37;
     margin-bottom: 1.3rem;
     margin: 0 auto;
     width: 30%;
@@ -118,7 +118,7 @@
 }
 
 .apps-detail-status-section-title {
-    background-color: #E6B510;
+    background-color: #FF8D37;
     color: black;
     padding: 10px;
     width: 100%;
