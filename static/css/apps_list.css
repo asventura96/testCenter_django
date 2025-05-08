@@ -118,8 +118,8 @@
 }
 
 .tb-list thead {
-    text-align: center;
-    background-color: #5D3FD3;
+    text-align: left;
+    background-color: #89D6FB;
     color: white;
     position: sticky;
     top: 0;

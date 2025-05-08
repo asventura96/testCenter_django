@@ -190,7 +190,7 @@
 }
 
 .tb-detail thead {
-    background-color: #E6B510;
+    background-color: #89D6FB;
     color: black;
 }
 
@@ -201,11 +201,11 @@
 }
 
 .tb-detail tbody tr:nth-child(odd) {
-    background-color: #babab9;
+    background-color: #D4F0FC;
 }
 
 .tb-detail tbody tr:nth-child(even) {
-    background-color: #e3e3e1;
+    background-color: white;
 }
 
 .tb-detail th a {
