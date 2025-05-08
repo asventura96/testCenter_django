@@ -1,0 +1,70 @@
+<!-- templates/includes/apps_form.html -->
+
+<div class="container-apps-form">
+    <form method="post" enctype="multipart/form-data" class="apps-form">
+        {% csrf_token %}
+        <div class="apps-form-group">
+            {% for section in sections %}
+                <div class="apps-form-group-edit-sub">
+                    <h4 class="apps-form-sub-section-title">{{ section.title }}</h4>
+
+                    {% if section.is_table %}
+                        <div class="apps-form-group-edit-sub">
+                            <table class="tb-form">
+                                <thead>
+                                    <tr>
+                                        {% for header in section.table_headers %}
+                                            <th>{{ header }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if section.fields %}
+                                        {% for field in section.fields %}
+                                            <tr>
+                                                {% for value in field.values %}
+                                                    <td>{{ value }}</td>
+                                                {% endfor %}
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="{{ section.table_headers|length }}">Nenhum dado encontrado.</td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        {% if section.is_formset %}
+                            {{ section.formset.management_form }}  <!-- Certifica que o Django reconhece o formset -->
+                        {% endif %}
+
+                        {% for field in section.fields %}
+                            <div class="apps-form-input">
+                                <label for="{{ field.id_for_label }}">
+                                    {{ field.label }}  <!-- Correção: renderizando o label correto -->
+                                </label>
+                                {{ field }}  <!-- Renderiza o campo do formulário -->
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Grupo de botões -->
+        <div class="apps-form-btn-group">
+            <button type="submit" class="btn-save btn-dark" title="Salvar">Salvar</button>
+            {% for button in buttons %}
+                <a class="{{ button.class }} btn-dark" href="{{ button.url }}" role="button" title="{{ button.title }}">{{ button.text }}</a>
+            {% endfor %}
+        </div>
+    </form>
+</div>
