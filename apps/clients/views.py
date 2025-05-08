@@ -155,7 +155,7 @@ def client_list(request):
     else:
         return render(
             request,
-            'client/client_list.html',
+            'clients/clients_list.html',
             context
         )
 
