@@ -37,7 +37,7 @@
             <!-- Formulário de logout -->
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit" class="btn-exit btn-orange">Logout</button>
+                <button type="submit" class="btn-exit btn-purple">Logout</button>
             </form>
         {% else %}
             <p>Você não está autenticado. <a href="{% url 'login' %}">Login</a></p>
