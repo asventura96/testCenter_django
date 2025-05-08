@@ -53,14 +53,14 @@ def client_new(request):
     ]
 
     # Renderização do template
-    return render(request, 'client/client_form.html', {
+    return render(request, 'clients/clients_form.html', {
         'form': form,
         'sections': sections,
         'buttons': buttons,
     })
 
 def client_list(request):
-    """ View para Listar os Centros de Provas """
+    """ View para Listar os Clientes """
     # Obtém os filtros
     query = request.GET.get('client-list-query')
     idle = request.GET.get('client-list-idle')
@@ -213,7 +213,7 @@ def client_detail(request, pk):
     ]
 
     # Renderização do template
-    return render(request, 'client/client_detail.html', {
+    return render(request, 'clients/clients_detail.html', {
         'client': client,
         'tabs': tabs,
         'sections': sections,
@@ -257,7 +257,7 @@ def client_edit(request, pk):
     ]
 
     # Renderização do template
-    return render(request, 'client/client_form.html', {
+    return render(request, 'clients/clients_form.html', {
         'form': form,
         'sections': sections,
         'buttons': buttons,
@@ -269,6 +269,6 @@ def client_delete(request, pk):
     if request.method == "POST":
         client.delete()
         return redirect('client_list')
-    return render(request, 'client/client_confirmDelete.html', {
+    return render(request, 'clients/clients_confirmDelete.html', {
         'client': client
     })
