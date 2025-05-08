@@ -1,0 +1,19 @@
+<!-- templates/includes/records_per_page_selector.html -->
+
+<form method="GET" action="{{ action_url }}" class="pagination-form">
+    <label for="records_per_page">Registros para exibir:</label>
+    <select name="records_per_page" id="records_per_page" class="records-per-page-selector">
+        <option value="20" {% if request.GET.records_per_page == "20" %}selected{% endif %}>20</option>
+        <option value="50" {% if request.GET.records_per_page == "50" %}selected{% endif %}>50</option>
+        <option value="100" {% if request.GET.records_per_page == "100" %}selected{% endif %}>100</option>
+        <option value="500" {% if request.GET.records_per_page == "500" %}selected{% endif %}>500</option>
+        <option value="1000" {% if request.GET.records_per_page == "1000" %}selected{% endif %}>1000</option>
+    </select>
+
+    <!-- Campos ocultos para preservar todos os parâmetros -->
+    {% for key, value in request.GET.items %}
+        {% if key != 'records_per_page' %}  {# Não adicionar o próprio campo do seletor #}
+            <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endif %}
+    {% endfor %}
+</form>
