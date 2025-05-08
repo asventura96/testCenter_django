@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_bootstrap5',
     'testCenter',
+    'apps.clients',  # Aplicativo de Clientes
 ]
 
 # Configuração dos middlewares (MIDDLEWARE)
