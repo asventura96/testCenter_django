@@ -1,0 +1,70 @@
+<!-- templates/includes/apps_detail.html -->
+
+<div class="container-verticalTab">
+    <div class="verticalTab-sidebar">
+        {% for tab in tabs %}
+            <div class="verticalTab {{ tab.class }}" data-content="{{ tab.id }}">
+                <i class="{{ tab.icon }}"></i>
+                <span>{{ tab.label }}</span>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Conteúdo das Guias-->
+    <div class="verticalTab-content-wrapper">
+        <div class="verticalTab-content">
+            {% for section in sections %}
+                <div id="{{ section.id }}" class="verticalTab-content-item {% if section.active %}active{% endif %}">
+                    <h6 class="apps-detail-sub-section-title">{{ section.title }}</h6>
+                    
+                    {% if section.is_table %}
+                        <div class="apps-detail-tb">
+                            <table class="tb-detail">
+                                <thead>
+                                    <tr>
+                                        {% for header in section.table_headers %}
+                                            <th>{{ header }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if section.fields %}
+                                        {% for field in section.fields %}
+                                            <tr>
+                                                {% for value in field.values %}
+                                                    <td>{{ value }}</td>
+                                                {% endfor %}
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="{{ section.table_headers|length }}">Nenhum dado encontrado.</td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="apps-detail-group">
+                            {% for field in section.fields %}
+                                {% if field.label %}
+                                    <p class="p-detail">
+                                        <span class="apps-detail-label {{ field.label_class }}">{{ field.label }} </span>
+                                        <span class="apps-detail-value {{ field.value_class }}">{{ field.value }}</span>
+                                    </p>
+                                {% else %}
+                                    <p class="p-detail">{{ field.value }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Grupo de botões -->
+        <div class="verticalTab-btn-group">
+            {% for button in buttons %}
+                <a class="{{ button.class }} btn-dark btn-circle" href="{{ button.url }}" role="button" title="{{ button.title }}">{{ button.text }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
