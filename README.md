@@ -1,6 +1,6 @@
 # testCenter_django
 
-Este repositório contém um projeto Django denominado **testCenter_django**. O objetivo do projeto é [descrever brevemente o que o projeto faz]. Este README fornece informações essenciais sobre o projeto, como instalação, configuração e uso.
+Este repositório contém um projeto Django denominado **testCenter_django**. O objetivo do projeto é o gerenciamento de exames e provas no contexto de um Centro de Provas. Inclui funcionalidades de backend e integração para aplicações web.. Este README fornece informações essenciais sobre o projeto, como instalação, configuração e uso.
 
 ## Índice
 
