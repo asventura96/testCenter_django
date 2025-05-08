@@ -133,6 +133,9 @@ def client_list(request):
         'headers': [
             {'field': 'id', 'label': 'ID'},
             {'field': 'nome', 'label': 'Nome'},
+            {'field': 'country', 'label': 'País'},
+            {'field': 'city', 'label': 'Cidade'},
+            {'field': 'notes', 'label': 'Observações'},
             {'field': 'inativo', 'label': 'Inativo'}
         ],
         'rows': [
@@ -144,6 +147,9 @@ def client_list(request):
                         args=[client.uid]
                     )}">{client.name}</a>'
                 ),
+                client.country,
+                client.city,
+                client.notes,
                 "Sim" if client.idle else "Não",
             ]
             for client in page_obj
@@ -185,7 +191,10 @@ def client_detail(request, pk):
                     'label_class': 'apps-detail-status-label',
                     'value_class': 'apps-detail-status-value'
                 },
-                {'label': 'Nome', 'value': client.name},
+                {'label': 'Nome do Cliente', 'value': client.name},
+                {'label': 'País', 'value': client.country},
+                {'label': 'Cidade / Estado', 'value': client.city},
+                {'label': 'Observações deste Cliente', 'value': client.notes},
             ]
         },
     ]
