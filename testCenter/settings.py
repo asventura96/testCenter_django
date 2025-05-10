@@ -8,6 +8,7 @@ configurações para o banco de dados, aplicativos instalados, middlewares e mui
 """
 
 import os
+
 import environ
 
 # Definição do diretório base do projeto (BASE_DIR)

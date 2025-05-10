@@ -4,11 +4,11 @@
 URLs do projeto testCenter.
 """
 
-from django.contrib.auth import views as auth_views
 from django.contrib import admin
-from django.urls import path, include
-from .views import delete_item, home
+from django.contrib.auth import views as auth_views
+from django.urls import include, path
 
+from .views import delete_item, home
 
 urlpatterns = [
     # URL para a interface Administrativa Django

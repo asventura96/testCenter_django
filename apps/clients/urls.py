@@ -5,6 +5,7 @@ Definição das URLs para o aplicativo Client.
 """
 
 from django.urls import path
+
 from . import views
 
 urlpatterns = [

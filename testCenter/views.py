@@ -7,9 +7,9 @@ específico de um modelo identificado pelo nome e PK, enquanto `home` renderiza
 a página inicial do projeto.
 """
 
+from django.apps import apps
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
-from django.apps import apps
 from django.views.decorators.csrf import csrf_exempt
 
 
