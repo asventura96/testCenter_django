@@ -1,0 +1,17 @@
+[project]
+name = "testcenter-django"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "André Ventura",email = "ti@asventura.com.br"}
+]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django (>=5.2.1,<6.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
