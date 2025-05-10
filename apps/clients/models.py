@@ -6,8 +6,10 @@ Definições dos modelos do aplicativo 'clients'.
 
 from django.db import models
 
+
 class Client(models.Model):
-    """ Modelo que representa um Cliente no sistema. """
+    """Modelo que representa um Cliente no sistema."""
+
     uid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     country = models.CharField(max_length=255, blank=True, null=True)
@@ -17,7 +19,7 @@ class Client(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Sobrescreve o método save para definir o UID inicial 
+        Sobrescreve o método save para definir o UID inicial
         e garantir que o nome seja salvo em caixa alta.
 
         O UID é gerado automaticamente a partir do último ID utilizado, garantindo a unicidade.
@@ -30,7 +32,7 @@ class Client(models.Model):
 
         # Lógica para definir o UID inicial
         if self._state.adding and self.uid is None:
-            last_id = Client.objects.aggregate(models.Max('uid'))['uid__max']
+            last_id = Client.objects.aggregate(models.Max("uid"))["uid__max"]
             if last_id is None:
                 self.uid = 10000000
             else:
@@ -38,9 +40,10 @@ class Client(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        """ Retorna uma representação em string do objeto Cliente. """
-        return f'Cliente: {self.uid} - {self.name}'
+        """Retorna uma representação em string do objeto Cliente."""
+        return f"Cliente: {self.uid} - {self.name}"
 
     class Meta:
         """Meta-informações para o modelo Client."""
-        db_table = 'tb_client'
+
+        db_table = "tb_client"
