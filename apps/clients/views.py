@@ -204,7 +204,7 @@ def client_detail(request, pk):
         },
         {
             "class": "btn-delete",
-            "url": "#",
+            "url": reverse("client_delete", args=[client.pk]),
             "data": {"model": "Client", "pk": client.pk},
             "title": "Excluir Cliente",
             "aria-label": "Excluir Cliente",
