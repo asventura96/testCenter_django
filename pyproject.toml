@@ -6,7 +6,7 @@ authors = [
     {name = "André Ventura",email = "ti@asventura.com.br"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10,<4.0"
 dependencies = [
     "django (==5.2.1)",
     "anyio (==4.9.0)",
@@ -72,7 +72,8 @@ dependencies = [
     "tzdata (==2025.2)",
     "urllib3 (==2.4.0)",
     "virtualenv (==20.31.2)",
-    "zstandard (==0.23.0)"
+    "zstandard (==0.23.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)"
 ]
 
 
@@ -82,6 +83,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 pytest-django = "^4.11.1"
+pylint-django = "^2.6.1"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "testCenter.settings"
