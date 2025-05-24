@@ -9,23 +9,22 @@ configurações para o banco de dados, aplicativos instalados, middlewares e mui
 
 import os
 
-import environ
+from dotenv import load_dotenv
 
 # Definição do diretório base do projeto (BASE_DIR)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Inicializa o django-environ
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+# Carrega o arquivo .env para variáveis de ambiente
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Configuração da chave secreta (SECRET_KEY)
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Configuração do modo de depuração (DEBUG) baseado na variável de ambiente
-DEBUG = env.bool("DEBUG", default=False)
+DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 
 # Configuração dos hosts permitidos (ALLOWED_HOSTS) para produção
-ALLOWED_HOSTS = env(
+ALLOWED_HOSTS = os.getenv(
     "ALLOWED_HOSTS", default="127.0.0.1,localhost" if DEBUG else "127.0.0.1,localhost"
 ).split(",")
 
@@ -33,7 +32,7 @@ ALLOWED_HOSTS = env(
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, env("SQLITE_PATH", default="data/db.sqlite3")),
+        "NAME": os.path.join(BASE_DIR, os.getenv("SQLITE_PATH", default="data/db.sqlite3")),
     }
 }
 
