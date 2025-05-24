@@ -1,7 +1,7 @@
 [project]
 name = "testcenter-django"
 version = "0.1.0"
-description = ""
+description = "Projeto Django para gerenciamento de exames e provas no contexto de um Centro de Provas. Inclui funcionalidades de backend e integração para aplicações web."
 authors = [
     {name = "André Ventura",email = "ti@asventura.com.br"}
 ]
