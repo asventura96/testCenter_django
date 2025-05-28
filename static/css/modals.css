@@ -4,6 +4,8 @@
 .modal-content h2 {
     color: black;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 /* Estilo para a mensagem do modal */
 .modal-content p {
@@ -53,7 +55,7 @@
     position: absolute;
     top: 10px;
     right: 15px;
-    font-size: 24px;
+    font-size: 30px;
     cursor: pointer;
     color: #023047;
 }
