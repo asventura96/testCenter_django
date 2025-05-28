@@ -14,18 +14,22 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
+from apps.utils.json_responses import json_error_response, log_exception
+
 from .forms import ClientForm
 from .models import Client
 
 
 def client_home(request):
     """View para a Página Inicial de Clientes"""
+
     return render(request, "clients/clients_home.html")
 
 
 def client_list(request):
     """View para Listar os Clientes"""
-    # Obtém os filtros
+
+    # Obtenção dos Filtros
     query = request.GET.get("client-list-query")
     idle = request.GET.get("client-list-idle")
 
@@ -39,14 +43,14 @@ def client_list(request):
     # Filtragem
     if query:
         client = client.filter(
-            Q(id__icontains=query) |
+            Q(uid__icontains=query) |
             Q(name__icontains=query)
         )
 
     if idle in ["True", "False"]:
         client = client.filter(idle=idle == "True")
 
-    # Aplicação da Ordenação
+    # Aplicação de Filtros da Ordenação
     if descending:
         order_by = f"-{order_by}"
     client = client.order_by(order_by)
@@ -63,7 +67,7 @@ def client_list(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    # Tratamento de erros para garantir que o objeto de página seja válido
+    # Tratamento de Erros na Páginação
     try:
         page_obj = paginator.get_page(page_number)
     except (ValueError, TypeError):
@@ -75,7 +79,7 @@ def client_list(request):
             "id": "client-list-query",
             "name": "client-list-query",
             "label": "Busque pelo Nome ou UID do Cliente:",
-            "placeholder": "Busque pelo Nome ou UID do Cliente",
+            "placeholder": "Digite o Nome ou UID do Cliente",
             "type": "text",
             "value": request.GET.get("q", ""),
         },
@@ -95,7 +99,7 @@ def client_list(request):
         "search_fields": search_fields,
         "query_params": request.GET.urlencode(),
         "headers": [
-            {"field": "id", "label": "ID"},
+            {"field": "uid", "label": "ID"},
             {"field": "nome", "label": "Nome"},
             {"field": "country", "label": "País"},
             {"field": "city", "label": "Cidade"},
@@ -127,13 +131,14 @@ def client_list(request):
 
 
 def client_detail(request, pk):
-    """View para Visualizar os detalhes de um Cliente"""
+    """View para Visualizar os Detalhes de um Cliente"""
+
     # Obtenção dos filtros
     client = get_object_or_404(Client, pk=pk)
 
-    # Mensagem de confirmação de exclusão do cliente
+    # Mensagem de confirmação de exclusão do Cliente
     message_confirmation_delete = (
-        f'Tem certeza que deseja excluir o cliente <br>'
+        f'Tem certeza que deseja excluir o Cliente <br>'
         f'<strong>{client.name}</strong>?'
     )
 
@@ -158,6 +163,7 @@ def client_detail(request, pk):
                     "label_class": "apps-detail-status-label",
                     "value_class": "apps-detail-status-value",
                 },
+                {"label": "UID", "value": client.uid},
                 {"label": "Nome do Cliente", "value": client.name},
                 {"label": "País", "value": client.country},
                 {"label": "Cidade / Estado", "value": client.city},
@@ -208,17 +214,40 @@ def client_detail(request, pk):
 
 def client_new(request):
     """View para Adicionar um Cliente"""
+
     if request.method == "POST":
         form = ClientForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect(reverse("client_list"))
+            try:
+                form.save()
+                messages.success(
+                    request,
+                    "Cliente adicionado com sucesso!"
+                )
+                return redirect(reverse("client_list"))
+            except IntegrityError:
+                messages.error(
+                    request,
+                    "Erro: já existe um Cliente com este UID."
+                )
+            except DatabaseError as e:
+                log_exception(
+                    exception=e,
+                    context="Erro ao salvar cliente",
+                )
+                messages.error(
+                    request,
+                    "Erro interno ao adicionar o Cliente."
+                )
         else:
-            print(form.errors)
+            messages.error(
+                request,
+                "Erro ao adicionar o Cliente."
+            )
     else:
         form = ClientForm()
 
-    # Definição das Seções e Botões
+    # Definição das Seções e Botões para o Template
     sections = [
         {
             "title": "Dados do Cliente",
@@ -254,7 +283,8 @@ def client_new(request):
 
 def client_edit(request, pk):
     """View para Editar um Cliente"""
-    # Obtém o objeto pelo ID (pk) ou retorna erro 404 se não encontrado
+
+    # Obtenção do objeto pelo ID (pk) ou retorno de erro 404 se não encontrado
     client = get_object_or_404(Client, pk=pk)
 
     # Verifica se a requisição é do tipo POST (submissão de formulário)
@@ -339,17 +369,18 @@ def client_delete(request, pk):
                 )
             })
         except (IntegrityError, DatabaseError) as e:
-            return JsonResponse({
-                "success": False,
-                "message": (
-                    f'Erro de banco de dados ao excluir o cliente: {str(e)}'
-                )
-            })
+            return json_error_response(
+                message_user="Erro ao excluir o cliente.",
+                exception=e,
+                context=f"Exclusão de cliente {client.pk}"
+            )
         except ValidationError as e:
-            return JsonResponse({
-                "success": False,
-                "message": f'Erro de validação: {e.messages}'
-            })
+            return json_error_response(
+                message_user="Erro de validação ao excluir o cliente.",
+                exception=e,
+                level="warning",
+                context=f"Validação ao excluir cliente {client.pk}"
+            )
 
     return render(
         request,
