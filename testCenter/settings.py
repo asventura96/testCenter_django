@@ -4,7 +4,7 @@
 Configurações do Django para o projeto Test Center.
 
 Este módulo contém as configurações para o projeto Django siga, incluindo
-configurações para o banco de dados, aplicativos instalados, middlewares e muito mais.
+configurações para o banco de dados, aplicativos instalados, middlewares, etc.
 """
 
 import os
@@ -25,14 +25,18 @@ DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 
 # Configuração dos hosts permitidos (ALLOWED_HOSTS) para produção
 ALLOWED_HOSTS = os.getenv(
-    "ALLOWED_HOSTS", default="127.0.0.1,localhost" if DEBUG else "127.0.0.1,localhost"
+    "ALLOWED_HOSTS",
+    default="127.0.0.1,localhost" if DEBUG else "127.0.0.1,localhost"
 ).split(",")
 
 # Configuração do banco de dados
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, os.getenv("SQLITE_PATH", default="data/db.sqlite3")),
+        "NAME": os.path.join(
+            BASE_DIR,
+            os.getenv("SQLITE_PATH", default="data/db.sqlite3")
+        ),
     }
 }
 
@@ -48,7 +52,7 @@ CACHES = {
 if DEBUG:
     CACHES["default"] = {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "unique-snowflake",  # Identificador único para o cache em memória
+        "LOCATION": "unique-snowflake",
     }
 
 # Configuração de sessão
@@ -67,6 +71,7 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "testCenter",
     "apps.utils",  # Aplicativo de Utilitários
+    "apps.certifiers",  # Aplicativo de Clientes
     "apps.clients",  # Aplicativo de Clientes
 ]
 
@@ -111,16 +116,20 @@ WSGI_APPLICATION = "testCenter.wsgi.application"
 # Configuração de validação de senhas (AUTH_PASSWORD_VALIDATORS)
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation."
+                "UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": "django.contrib.auth.password_validation."
+                "MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation."
+                "CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation."
+                "NumericPasswordValidator",
     },
 ]
 
@@ -171,10 +180,10 @@ STATICFILES_DIRS = [
 ]
 
 # Configurações de Segurança
-SESSION_COOKIE_SECURE = True  # Envia o cookie de sessão apenas por HTTPS
-SESSION_COOKIE_HTTPONLY = True  # Impede que o cookie seja acessado via JavaScript
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = (
-    "Lax"  # Reduz o risco de vazamento de cookies em requisições cross-site
+    "Lax"
 )
 
 # Configuração do STATIC_ROOT para produção
@@ -188,7 +197,15 @@ CONTENT_SECURITY_POLICY = {
             "'self'",
             "data:",
         ),
-        "script-src": ("'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"),
-        "style-src": ("'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"),
+        "script-src": (
+            "'self'",
+            "'unsafe-inline'",
+            "https://cdn.jsdelivr.net"
+        ),
+        "style-src": (
+            "'self'",
+            "'unsafe-inline'",
+            "https://cdn.jsdelivr.net"
+        ),
     }
 }
