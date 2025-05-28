@@ -287,18 +287,42 @@ def client_edit(request, pk):
     # Obtenção do objeto pelo ID (pk) ou retorno de erro 404 se não encontrado
     client = get_object_or_404(Client, pk=pk)
 
-    # Verifica se a requisição é do tipo POST (submissão de formulário)
+    # Verificação da Requisição do tipo POST
     if request.method == "POST":
         form = ClientForm(request.POST, instance=client)
 
-        # Se o formulário for válido, salva as alterações no objeto
+        # Validação do Formulário
         if form.is_valid():
-            form.save()
-            return redirect("client_list")
+            try:
+                form.save()
+                messages.success(
+                    request,
+                    "Cliente atualizado com sucesso!"
+                )
+                return redirect(reverse("client_list"))
+            except IntegrityError:
+                messages.error(
+                    request,
+                    "Erro: já existe um Cliente com este UID."
+                )
+            except DatabaseError as e:
+                log_exception(
+                    exception=e,
+                    context="Erro ao atualizar Cliente",
+                )
+                messages.error(
+                    request,
+                    "Erro interno ao atualizar o Cliente."
+                )
+        else:
+            messages.error(
+                request,
+                "Erro ao atualizar o Cliente."
+            )
     else:
         form = ClientForm(instance=client)
 
-    # Definição das Seções e Botões
+    # Definição das Seções e Botões para o Template
     sections = [
         {
             "title": "Dados do Cliente",
@@ -321,7 +345,7 @@ def client_edit(request, pk):
         },
     ]
 
-    # Renderização do template
+    # Renderização do Template
     return render(
         request,
         "clients/clients_form.html",
@@ -335,53 +359,57 @@ def client_edit(request, pk):
 
 def client_delete(request, pk):
     """View para Excluir um Cliente"""
+
+    # Obtenção do objeto pelo ID (pk) ou retorno de erro 404 se não encontrado
     client = get_object_or_404(Client, pk=pk)
 
     # Mensagem de confirmação de exclusão do cliente
     message_confirmation_delete = (
-        f'Tem certeza que deseja excluir o cliente <br>'
+        f'Tem certeza que deseja excluir o Cliente <br>'
         f'<strong>{client.name}</strong>?'
     )
 
+    # Verificação da Requisição do tipo POST
     if request.method == "POST":
         try:
             client.delete()
             messages.success(
                 request,
                 (
-                    f'O cliente "<strong>{client.name}</strong>" '
-                    f'foi excluído com sucesso.'
+                    f'O Cliente "<strong>{client.name}</strong>" '
+                    f'foi excluído com sucesso!'
                 )
             )
             return JsonResponse({
                 "success": True,
                 "message": (
-                    f'O cliente "<strong>{client.name}</strong>" '
-                    f'foi excluído com sucesso.'
+                    f'O Cliente "<strong>{client.name}</strong>" '
+                    f'foi excluído com sucesso!'
                 )
             })
         except ProtectedError:
             return JsonResponse({
                 "success": False,
                 "message": (
-                    "Não é possível excluir o cliente porque ele está "
+                    "Não é possível excluir o Cliente porque ele está "
                     "relacionado a outros registros."
                 )
             })
         except (IntegrityError, DatabaseError) as e:
             return json_error_response(
-                message_user="Erro ao excluir o cliente.",
+                message_user="Erro ao excluir o Cliente.",
                 exception=e,
-                context=f"Exclusão de cliente {client.pk}"
+                context=f"Exclusão de Cliente {client.pk}"
             )
         except ValidationError as e:
             return json_error_response(
-                message_user="Erro de validação ao excluir o cliente.",
+                message_user="Erro de validação ao excluir o Cliente.",
                 exception=e,
                 level="warning",
-                context=f"Validação ao excluir cliente {client.pk}"
+                context=f"Validação ao excluir Cliente {client.pk}"
             )
 
+    # Renderização do Template
     return render(
         request,
         "clients/clients_confirmDelete.html",
