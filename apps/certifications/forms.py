@@ -16,7 +16,8 @@ class CertificationForm(forms.ModelForm):
     Formulário para cadastro e edição de Certificações.
     """
 
-    certifier = forms.Select(
+    certifier = forms.ModelChoiceField(
+        queryset=Certification.objects.all(),
         label="Certificador",
         widget=forms.Select(
             attrs={
