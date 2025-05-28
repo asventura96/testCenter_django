@@ -71,7 +71,8 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "testCenter",
     "apps.utils",  # Aplicativo de Utilitários
-    "apps.certifiers",  # Aplicativo de Clientes
+    "apps.certifications",  # Aplicativo de Certificações
+    "apps.certifiers",  # Aplicativo de Certificadores
     "apps.clients",  # Aplicativo de Clientes
 ]
 
