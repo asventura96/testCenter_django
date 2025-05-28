@@ -28,6 +28,15 @@
 
     <!-- Área exclusiva para conteúdo específico de cada página -->
     {% block content %}
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message|safe }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     <!-- Aqui vai o conteúdo específico de cada página -->
     {% endblock %}
     

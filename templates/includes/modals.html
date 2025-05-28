@@ -5,7 +5,7 @@
     <div class="modal-content">
         <span class="btn-close-modal">&times;</span>
         <h2>Confirmar Exclusão</h2>
-        <p>Tem certeza que deseja excluir este item?</p>
+        <p>{{ message_confirmation_delete|default:"Tem certeza que deseja excluir este item?"|safe }}</p>
         <div class="btn-group-modal">
             <button type="button" class="btn-confirm">Confirmar</button>
             <button type="button" class="btn-cancel">Cancelar</button>

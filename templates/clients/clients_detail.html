@@ -12,7 +12,11 @@
 {% endblock %}
 
 {% block content %}
+
 <!-- Template de Detalhes -->
 {% include 'includes/apps_detail.html' %}
+
+<!-- Modal de confirmação de exclusão -->
+{% include 'includes/modals.html' with confirmation_message=confirmation_message %}
 
 {% endblock %}

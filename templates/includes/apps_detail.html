@@ -63,7 +63,19 @@
         <!-- Grupo de botões -->
         <div class="verticalTab-btn-group">
             {% for button in buttons %}
-                <a class="{{ button.class }} btn-dark btn-circle" href="{{ button.url }}" role="button" title="{{ button.title }}">{{ button.text }}</a>
+                <a
+                    class="{{ button.class }} btn-dark btn-circle"
+                    href="{{ button.url }}"
+                    role="button"
+                    aria-label="{{ aria_label }}"
+                    {% if button.data %}
+                        {% for key, value in button.data.items %}
+                            data-{{ key }}="{{ value }}"
+                        {% endfor %}
+                    {% endif %}
+                >
+                    {{ button.text }}
+                </a>
             {% endfor %}
         </div>
     </div>
