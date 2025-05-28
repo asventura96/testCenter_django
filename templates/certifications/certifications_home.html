@@ -1,0 +1,23 @@
+<!-- templates/certifications/certifications_home.html -->
+
+{% extends "base.html" %}
+
+{% block title %}VENTURIX - Gestão de Certificações{% endblock %}
+
+{% block body_class %}body-apps-home{% endblock %}
+
+{% block header_title %}Gestão de Certificações{% endblock %}
+
+{% block content %}
+
+<div class="container-home-apps">
+    <div class="column-home-apps">
+        <h3 class="home-apps-subtitle">Certificações</h3>
+        <div class="btn-group-home-apps">
+            <a href="{% url 'certification_new' %}" class="btn-new btn-transparent" aria-label="Criar nova Certificação">Novo</a>
+            <a href="{% url 'certification_list' %}" class="btn-list btn-transparent" aria-label="Localizar Certificação">Localizar</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
