@@ -1,8 +1,7 @@
 # apps/clients/forms.py
 
 """
-Este módulo contém os formulários utilizados para o aplicativo de Alunos.
-Ele define os formulários para cadastro, edição e outras operações relacionadas aos Alunos.
+Definição dos formulários do aplicativo 'clients'.
 """
 
 from django import forms

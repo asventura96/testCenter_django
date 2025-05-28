@@ -22,7 +22,7 @@ class Client(models.Model):
         Sobrescreve o método save para definir o UID inicial
         e garantir que o nome seja salvo em caixa alta.
 
-        O UID é gerado automaticamente a partir do último ID utilizado, garantindo a unicidade.
+        O UID é gerado automaticamente a partir do último ID utilizado.
         O nome é convertido para caixa alta para padronizar os dados.
         """
 
