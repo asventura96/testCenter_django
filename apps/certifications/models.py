@@ -42,7 +42,7 @@ def set_certification_id(sender, instance, **kwargs):
         # Obtenção do último ID usado para a certificação com o mesmo examCode
         last_certification = (
             Certification.objects.
-            filter(id__startwith=examCode)
+            filter(id__startswith=examCode)
             .order_by('-id')
             .first()
         )
