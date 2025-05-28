@@ -2,13 +2,13 @@
 
 {% extends 'base.html' %}
 
-{% block title %}SIGA - Confirmar exclusão do Centro de Provas{% endblock %}
+{% block title %}VENTURIX - Confirmar exclusão do Cliente{% endblock %}
 
 {% block content %}
 
-<h2 class="page-title">Excluir Centro de Provas</h2>
+<h2 class="page-title">Excluir Cliente</h2>
 
-<p>Tem certeza que deseja excluir o Centro de Provas {{ client.name }}?</p>
+<p>Tem certeza que deseja excluir o Cliente {{ client.name }}?</p>
 <form method="post">
     {% csrf_token %}
     <button type="submit">Confirmar</button>
