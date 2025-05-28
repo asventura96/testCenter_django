@@ -24,22 +24,22 @@ urlpatterns = [
         name="certification_list"
     ),
     path(
-        "certification/<int:pk>/",
-        views.certification_detail,
-        name="certification_detail"
-    ),
-    path(
         "certification/new/",
         views.certification_new,
         name="certification_new"
     ),
     path(
-        "certification/<int:pk>/edit/",
+        "certification/<str:pk>/",
+        views.certification_detail,
+        name="certification_detail"
+    ),
+    path(
+        "certification/<str:pk>/edit/",
         views.certification_edit,
         name="certification_edit"
     ),
     path(
-        "certification/<int:pk>/delete/",
+        "certification/<str:pk>/delete/",
         views.certification_delete,
         name="certification_delete"
     ),
