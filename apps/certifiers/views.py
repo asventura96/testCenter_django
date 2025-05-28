@@ -380,7 +380,7 @@ def certifier_delete(request, pk):
             return JsonResponse({
                 "success": True,
                 "message": (
-                    f'O Cliente "<strong>{certifier.name}</strong>" '
+                    f'O Certificador "<strong>{certifier.name}</strong>" '
                     f'foi excluído com sucesso!'
                 )
             })
@@ -409,7 +409,7 @@ def certifier_delete(request, pk):
     # Renderização do Template
     return render(
         request,
-        "certifiers/certifiers_delete.html",
+        "certifiers/certifiers_confirmDelete.html",
         {
             "certifier": certifier,
             "message_confirmation_delete": message_confirmation_delete,
