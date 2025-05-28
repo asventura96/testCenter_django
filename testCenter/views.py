@@ -30,7 +30,8 @@ def home(request):
 @csrf_exempt  # Use com cautela
 def delete_item(request, model_name, pk):
     """
-    Exclui um item de um modelo específico baseado no nome do modelo e na chave primária (PK).
+    Exclui um item de um modelo específico baseado no nome do modelo
+    e na chave primária (PK).
 
     Parâmetros:
     - request: Objeto HttpRequest representando a requisição HTTP recebida.
@@ -40,7 +41,10 @@ def delete_item(request, model_name, pk):
     Retorna:
     - JsonResponse: Resposta JSON indicando sucesso ou falha na operação.
     """
-    print(f"Requisição recebida: {request.method}, Modelo: {model_name}, PK: {pk}")
+    print(
+        f"Requisição recebida: {request.method}, "
+        f"Modelo: {model_name}, PK: {pk}"
+    )
     if request.method == "POST":
         try:
             model = None
@@ -53,7 +57,11 @@ def delete_item(request, model_name, pk):
             if not model:
                 print("Modelo não encontrado.")  # Modelo não encontrado
                 return JsonResponse(
-                    {"success": False, "error": "Modelo não encontrado"}, status=404
+                    {
+                        "success": False,
+                        "error": "Modelo não encontrado"
+                    },
+                    status=404
                 )
 
             # Obter o item e excluir
@@ -73,4 +81,10 @@ def delete_item(request, model_name, pk):
                 status=500,
             )
     print("Método não permitido.")
-    return JsonResponse({"success": False, "error": "Método não permitido"}, status=405)
+    return JsonResponse(
+        {
+            "success": False,
+            "error": "Método não permitido"
+        },
+        status=405
+    )
