@@ -1,0 +1,15 @@
+<!-- templates/certifiers/certifiers_form.html -->
+
+{% extends "base.html" %}
+
+{% block title %}{{ form.instance.pk|yesno:"Editar Certificador,Adicionar Certificador" }}{% endblock %}
+
+{% block body_class %}body-apps-form{% endblock %}
+
+{% block header_title %}{{ form.instance.pk|yesno:"Editar Certificador,Adicionar Certificador" }}{% endblock %}
+
+{% block content %}
+
+    {% include "includes/apps_form.html" %}
+
+{% endblock %}
