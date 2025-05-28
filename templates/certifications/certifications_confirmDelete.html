@@ -1,0 +1,18 @@
+<!-- templates/certifications/certifications_confirmDelete.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}VENTURIX - Confirmar exclusão da Certificação{% endblock %}
+
+{% block content %}
+
+<h2 class="page-title">Excluir Certificação</h2>
+
+<p>Tem certeza que deseja excluir a Certificação {{ certification.name }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+    <a href="{% url 'certifier_list' %}">Cancelar</a>
+</form>
+
+{% endblock %}
