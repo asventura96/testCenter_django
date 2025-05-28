@@ -18,7 +18,7 @@ class Certification(models.Model):
     certifier = models.ForeignKey(Certifier, on_delete=models.PROTECT)
     name = models.CharField(max_length=255)
     examCode = models.CharField(max_length=50, blank=True, null=True)
-    durantion = models.PositiveIntegerField(default=0, blank=True, null=True)
+    duration = models.PositiveIntegerField(default=0, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
     idle = models.BooleanField(default=False)
 
