@@ -47,12 +47,12 @@ class CertificationForm(forms.ModelForm):
             }
         ),
     )
-    durantion = forms.IntegerField(
+    duration = forms.IntegerField(
         label="Duração (em minutos)",
         widget=forms.NumberInput(
             attrs={
                 "class": "apps-form-input",
-                "id": "certification-durantion",
+                "id": "certification-duration",
                 "placeholder": "Informe a Duração em minutos",
             }
         ),
@@ -87,7 +87,7 @@ class CertificationForm(forms.ModelForm):
             "certifier",
             "name",
             "examCode",
-            "durantion",
+            "duration",
             "notes",
             "idle"
         ]
