@@ -7,6 +7,7 @@ Definição dos formulários do aplicativo 'certifications'.
 from django import forms
 
 from apps.utils.widgets import BooleanSelect
+from apps.certifications.models import Certifier
 
 from .models import Certification
 
@@ -17,7 +18,7 @@ class CertificationForm(forms.ModelForm):
     """
 
     certifier = forms.ModelChoiceField(
-        queryset=Certification.objects.all(),
+        queryset=Certifier.objects.all(),
         label="Certificador",
         widget=forms.Select(
             attrs={
@@ -69,6 +70,7 @@ class CertificationForm(forms.ModelForm):
                 "rows": 4,
             }
         ),
+        required=False,
     )
     idle = forms.BooleanField(
         label="Certificação Inativa",
@@ -92,3 +94,21 @@ class CertificationForm(forms.ModelForm):
             "notes",
             "idle"
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["certifier"].queryset = (
+            Certifier.objects
+            .filter(idle=False)
+            .order_by("name")
+        )
+
+        self.fields["certifier"].label_from_instance = (
+            self.certifier_label_from_instance
+        )
+
+    def certifier_label_from_instance(self, obj):
+        """
+        Retorna o rótulo para o Certificador.
+        """
+        return f"{obj.name} ({obj.abbreviation})"
