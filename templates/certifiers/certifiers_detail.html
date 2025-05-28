@@ -1,0 +1,22 @@
+<!-- templates/certifiers/certifiers_detail.html -->
+
+{% extends "base.html" %}
+
+{% block title %}VENTURIX - Detalhes do Certificador{% endblock %}
+
+{% block body_class %}body-apps-detail{% endblock %}
+
+{% block header_title %}
+    Detalhes do Certificador<br>
+    <span class="apps-detail-subtitle">{{ certifier.name }} ({{ certifier.abbreviation }})</span>
+{% endblock %}
+
+{% block content %}
+
+<!-- Template de Detalhes -->
+{% include 'includes/apps_detail.html' %}
+
+<!-- Modal de confirmação de exclusão -->
+{% include 'includes/modals.html' with confirmation_message=confirmation_message %}
+
+{% endblock %}
