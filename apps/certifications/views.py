@@ -118,8 +118,8 @@ def certification_list(request):
         "query_params": request.GET.urlencode(),
         "headers": [
             {"field": "id", "label": "ID"},
-            {"field": "certifier", "label": "Certificador"},
             {"field": "name", "label": "Nome da Certificação"},
+            {"field": "certifier", "label": "Certificador"},
             {"field": "examCode", "label": "Código do Exame"},
             {"field": "duration", "label": "Duração (minutos)"},
             {"field": "notes", "label": "Observações"},
@@ -134,6 +134,7 @@ def certification_list(request):
                         args=[certification.id]
                     )}">{certification.name}</a>'
                 ),
+                certification.certifier.name,
                 certification.examCode,
                 certification.duration,
                 certification.notes,
@@ -256,7 +257,7 @@ def certification_detail(request, pk):
     # Renderização do Template
     return render(
         request,
-        "certifications/certification_detail.html",
+        "certifications/certifications_detail.html",
         {
             "certification": certification,
             "tabs": tabs,
