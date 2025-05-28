@@ -71,7 +71,7 @@ class ClientForm(forms.ModelForm):
     )
 
     class Meta:
-        """Configurações meta do formulário."""
+        """Meta-informações para o formulário."""
 
         model = Client
         fields = ["name", "country", "city", "notes", "idle"]
