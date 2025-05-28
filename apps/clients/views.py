@@ -23,52 +23,6 @@ def client_home(request):
     return render(request, "clients/clients_home.html")
 
 
-def client_new(request):
-    """View para Adicionar um Cliente"""
-    if request.method == "POST":
-        form = ClientForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse("client_list"))
-        else:
-            print(form.errors)
-    else:
-        form = ClientForm()
-
-    # Definição das Seções e Botões
-    sections = [
-        {
-            "title": "Dados do Cliente",
-            "fields": [
-                form["name"],
-                form["country"],
-                form["city"],
-                form["notes"],
-            ],
-        },
-    ]
-
-    buttons = [
-        {
-            "class": "btn-return",
-            "url": reverse("client_list"),
-            "title": "Retornar",
-            "text": "Retornar",
-        },
-    ]
-
-    # Renderização do template
-    return render(
-        request,
-        "clients/clients_form.html",
-        {
-            "form": form,
-            "sections": sections,
-            "buttons": buttons,
-        },
-    )
-
-
 def client_list(request):
     """View para Listar os Clientes"""
     # Obtém os filtros
@@ -248,6 +202,52 @@ def client_detail(request, pk):
             "sections": sections,
             "buttons": buttons,
             "message_confirmation_delete": message_confirmation_delete,
+        },
+    )
+
+
+def client_new(request):
+    """View para Adicionar um Cliente"""
+    if request.method == "POST":
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("client_list"))
+        else:
+            print(form.errors)
+    else:
+        form = ClientForm()
+
+    # Definição das Seções e Botões
+    sections = [
+        {
+            "title": "Dados do Cliente",
+            "fields": [
+                form["name"],
+                form["country"],
+                form["city"],
+                form["notes"],
+            ],
+        },
+    ]
+
+    buttons = [
+        {
+            "class": "btn-return",
+            "url": reverse("client_list"),
+            "title": "Retornar",
+            "text": "Retornar",
+        },
+    ]
+
+    # Renderização do template
+    return render(
+        request,
+        "clients/clients_form.html",
+        {
+            "form": form,
+            "sections": sections,
+            "buttons": buttons,
         },
     )
 
