@@ -4,8 +4,12 @@
 Definição das views para o aplicativo Client.
 """
 
+from django.contrib import messages
+from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db import IntegrityError, DatabaseError
+from django.db.models import Q, ProtectedError
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -80,7 +84,10 @@ def client_list(request):
 
     # Filtragem
     if query:
-        client = client.filter(Q(id__icontains=query) | Q(name__icontains=query))
+        client = client.filter(
+            Q(id__icontains=query) |
+            Q(name__icontains=query)
+        )
 
     if idle in ["True", "False"]:
         client = client.filter(idle=idle == "True")
@@ -170,9 +177,19 @@ def client_detail(request, pk):
     # Obtenção dos filtros
     client = get_object_or_404(Client, pk=pk)
 
+    # Mensagem de confirmação de exclusão do cliente
+    message_confirmation_delete = (
+        f'Tem certeza que deseja excluir o cliente <br>'
+        f'<strong>{client.name}</strong>?'
+    )
+
     # Preparação dos Dados para o template reutilizável
     tabs = [
-        {"id": "client-detail-dados", "class": "btn-detail", "label": "Detalhes"},
+        {
+            "id": "client-detail-dados",
+            "class": "btn-detail",
+            "label": "Detalhes"
+        },
     ]
 
     sections = [
@@ -205,7 +222,11 @@ def client_detail(request, pk):
         {
             "class": "btn-delete",
             "url": reverse("client_delete", args=[client.pk]),
-            "data": {"model": "Client", "pk": client.pk},
+            "data": {
+                "model": "Client",
+                "pk": client.pk,
+                "redirect-url": reverse("client_list"),
+            },
             "title": "Excluir Cliente",
             "aria-label": "Excluir Cliente",
         },
@@ -226,6 +247,7 @@ def client_detail(request, pk):
             "tabs": tabs,
             "sections": sections,
             "buttons": buttons,
+            "message_confirmation_delete": message_confirmation_delete,
         },
     )
 
@@ -284,7 +306,56 @@ def client_edit(request, pk):
 def client_delete(request, pk):
     """View para Excluir um Cliente"""
     client = get_object_or_404(Client, pk=pk)
+
+    # Mensagem de confirmação de exclusão do cliente
+    message_confirmation_delete = (
+        f'Tem certeza que deseja excluir o cliente <br>'
+        f'<strong>{client.name}</strong>?'
+    )
+
     if request.method == "POST":
-        client.delete()
-        return redirect("client_list")
-    return render(request, "clients/clients_confirmDelete.html", {"client": client})
+        try:
+            client.delete()
+            messages.success(
+                request,
+                (
+                    f'O cliente "<strong>{client.name}</strong>" '
+                    f'foi excluído com sucesso.'
+                )
+            )
+            return JsonResponse({
+                "success": True,
+                "message": (
+                    f'O cliente "<strong>{client.name}</strong>" '
+                    f'foi excluído com sucesso.'
+                )
+            })
+        except ProtectedError:
+            return JsonResponse({
+                "success": False,
+                "message": (
+                    "Não é possível excluir o cliente porque ele está "
+                    "relacionado a outros registros."
+                )
+            })
+        except (IntegrityError, DatabaseError) as e:
+            return JsonResponse({
+                "success": False,
+                "message": (
+                    f'Erro de banco de dados ao excluir o cliente: {str(e)}'
+                )
+            })
+        except ValidationError as e:
+            return JsonResponse({
+                "success": False,
+                "message": f'Erro de validação: {e.messages}'
+            })
+
+    return render(
+        request,
+        "clients/clients_confirmDelete.html",
+        {
+            "client": client,
+            "message_confirmation_delete": message_confirmation_delete,
+        }
+    )
