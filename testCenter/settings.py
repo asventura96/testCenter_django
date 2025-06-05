@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     "apps.certifications",  # Aplicativo de Certificações
     "apps.certifiers",  # Aplicativo de Certificadores
     "apps.clients",  # Aplicativo de Clientes
+    "apps.testCenter",  # Aplicativo de Centros de Provas
 ]
 
 # Configuração dos middlewares (MIDDLEWARE)
