@@ -22,7 +22,7 @@ from django.conf import settings
 
 
 # Define o DJANGO_SETTINGS_MODULE antes de chamar django.setup()
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "testCenter.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "venturix_testCenter.settings")
 django.setup()
 
 
