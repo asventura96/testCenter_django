@@ -88,6 +88,6 @@ pytest-django = "^4.11.1"
 pylint-django = "^2.6.1"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "testCenter.settings"
+DJANGO_SETTINGS_MODULE = "venturix_testCenter.settings"
 # -- recommended but optional:
 python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
