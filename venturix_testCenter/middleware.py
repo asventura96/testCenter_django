@@ -1,7 +1,8 @@
 # venturix_testCenter/middleware.py
 
 """
-Middleware para garantir que o usuário esteja autenticado antes de acessar certas URLs.
+Middleware para garantir que o usuário esteja autenticado
+antes de acessar certas URLs.
 """
 
 from django.conf import settings
@@ -21,7 +22,8 @@ EXEMPT_URLS = [
 
 class LoginRequiredMiddleware:
     """
-    Middleware que redireciona usuários não autenticados para a página de login.
+    Middleware que redireciona usuários não autenticados
+    para a página de login.
     """
 
     def __init__(self, get_response):
