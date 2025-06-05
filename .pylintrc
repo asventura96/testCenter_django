@@ -116,7 +116,7 @@ unsafe-load-any-extension=no
 #verbose=
 
 # Specifies the Django settings module to properly configure pylint-django
-django-settings-module=testCenter.settings
+django-settings-module=venturix_testCenter.settings
 
 [BASIC]
 
