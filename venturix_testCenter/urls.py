@@ -1,4 +1,4 @@
-# testCenter/urls.py
+# venturix_testCenter/urls.py
 
 """
 URLs do projeto testCenter.
@@ -22,7 +22,6 @@ urlpatterns = [
     path("", include("apps.clients.urls")),
     path("", include("apps.certifications.urls")),
     path("", include("apps.certifiers.urls")),
-    path("", include("apps.testCenter.urls")),
     # Path para exclusão de registros
     path("delete/<str:model_name>/<int:pk>/", delete_item, name="delete_item"),
 ]

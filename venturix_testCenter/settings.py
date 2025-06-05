@@ -1,7 +1,7 @@
-# testCenter/settings.py
+# venturix_testCenter/settings.py
 
 """
-Configurações do Django para o projeto Test Center.
+Configurações do Django para o projeto Venturix Test Center.
 
 Este módulo contém as configurações para o projeto Django siga, incluindo
 configurações para o banco de dados, aplicativos instalados, middlewares, etc.
@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "django_bootstrap5",
-    "testCenter",
+    "venturix_testCenter",  # Aplicativo principal do projeto
     "apps.utils",  # Aplicativo de Utilitários
     "apps.certifications",  # Aplicativo de Certificações
     "apps.certifiers",  # Aplicativo de Certificadores
@@ -86,7 +86,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "testCenter.middleware.LoginRequiredMiddleware",
+    "venturix_testCenter.middleware.LoginRequiredMiddleware",
 ]
 
 # Configuração dos templates (TEMPLATES)
@@ -110,10 +110,10 @@ TEMPLATES = [
 ]
 
 # Configuração da URL principal (ROOT_URLCONF)
-ROOT_URLCONF = "testCenter.urls"
+ROOT_URLCONF = "venturix_testCenter.urls"
 
 # Configuração da aplicação WSGI (WSGI_APPLICATION)
-WSGI_APPLICATION = "testCenter.wsgi.application"
+WSGI_APPLICATION = "venturix_testCenter.wsgi.application"
 
 # Configuração de validação de senhas (AUTH_PASSWORD_VALIDATORS)
 AUTH_PASSWORD_VALIDATORS = [

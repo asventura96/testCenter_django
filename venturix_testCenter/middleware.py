@@ -1,4 +1,4 @@
-# testCenter/middleware.py
+# venturix_testCenter/middleware.py
 
 """
 Middleware para garantir que o usuário esteja autenticado antes de acessar certas URLs.

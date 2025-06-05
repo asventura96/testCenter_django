@@ -1,4 +1,4 @@
-# testCenter/views.py
+# venturix_testCenter/views.py
 
 """
 Este módulo define as views da aplicação, incluindo funções para exclusão de
