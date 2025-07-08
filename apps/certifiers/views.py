@@ -360,7 +360,7 @@ def certifier_delete(request, pk):
     # Obtenção do objeto pelo ID (pk) ou retorno de erro 404 se não encontrado
     certifier = get_object_or_404(Certifier, pk=pk)
 
-    # Mensagem de confirmação de exclusão do cliente
+    # Mensagem de confirmação de exclusão do Certificador
     message_confirmation_delete = (
         f'Tem certeza que deseja excluir o Certificador <br>'
         f'<strong>{certifier.name}</strong>?'
