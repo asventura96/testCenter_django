@@ -13,7 +13,7 @@ from apps.clients.models import Client
 from .models import TestCenter, TestCenterExam
 
 
-class TestCenterForm(forms.Form):
+class TestCenterForm(forms.ModelForm):
     """
     Formulário para cadastro e edição de Centros de Provas.
     """
