@@ -114,7 +114,7 @@ def testcenter_list(request):
                         args=[testcenter.id]
                     )}">{testcenter.name}</a>'
                 ),
-                testcenter.notes,
+                testcenter.notes if testcenter.notes else "",
                 "Sim" if testcenter.idle else "Não",
             ]
             for testcenter in page_obj
