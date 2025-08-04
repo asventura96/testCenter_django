@@ -11,29 +11,29 @@ from . import views
 urlpatterns = [
     # URL página Principal do Centro de Provas
     path(
-        "testcenter/",
+        "testCenter/",
         views.testcenter_home,
         name="testcenter_home"
     ),
     # URLs de Centros de Provas
-    path("testcenter/list/", views.testcenter_list, name="testcenter_list"),
+    path("testCenter/list/", views.testcenter_list, name="testcenter_list"),
     path(
-        "testcenter/<int:pk>/",
+        "testCenter/<int:pk>/",
         views.testcenter_detail,
         name="testcenter_detail"
     ),
     path(
-        "testcenter/new/",
+        "testCenter/new/",
         views.testcenter_new,
         name="testcenter_new"
     ),
     path(
-        "testcenter/<int:pk>/edit/",
+        "testCenter/<int:pk>/edit/",
         views.testcenter_edit,
         name="testcenter_edit"
     ),
     path(
-        "testcenter/<int:pk>/delete/",
+        "testCenter/<int:pk>/delete/",
         views.testcenter_delete,
         name="testcenter_delete"
     ),
