@@ -89,10 +89,10 @@ class TestCenterExamForm(forms.ModelForm):
             }
         ),
     )
-    date = forms.DateTimeInput(
-        format="%Y-%m-%d %H:%M",
+    date = forms.DateTimeField(
         label="Data e Hora do Exame",
         widget=forms.DateTimeInput(
+            format="%Y-%m-%d %H:%M",
             attrs={
                 "class": "apps-form-input",
                 "id": "testCenterExam-date",
