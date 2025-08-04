@@ -166,7 +166,7 @@ def testcenter_detail(request, pk):
                 },
                 {
                     "label": "Observações deste Centro de Provas",
-                    "value": testcenter.notes
+                    "value": testcenter.notes if testcenter.notes else "",
                 },
             ],
         },
