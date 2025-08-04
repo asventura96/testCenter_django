@@ -1,0 +1,15 @@
+<!-- templates/testCenters/testCenters_form.html -->
+
+{% extends "base.html" %}
+
+{% block title %}{{ form.instance.pk|yesno:"Editar Centro de Provas,Adicionar Centro de Provas" }}{% endblock %}
+
+{% block body_class %}body-apps-form{% endblock %}
+
+{% block header_title %}{{ form.instance.pk|yesno:"Editar Centro de Provas,Adicionar Centro de Provas" }}{% endblock %}
+
+{% block content %}
+
+    {% include "includes/apps_form.html" %}
+
+{% endblock %}
