@@ -39,6 +39,18 @@ class TestCenterForm(forms.Form):
             }
         ),
     )
+    notes = forms.CharField(
+        label="Observações do Centro de Provas",
+        widget=forms.Textarea(
+            attrs={
+                "class": "apps-form-input",
+                "id": "testCenter-notes",
+                "placeholder": "Digite uma Observação do Centro de Provas",
+                "rows": 4,
+            }
+        ),
+        required=False,
+    )
 
     class Meta:
         """Meta-informações para o formulário"""
