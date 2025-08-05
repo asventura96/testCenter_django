@@ -1,0 +1,49 @@
+<!-- templates/testCenters/exams_list.html -->
+
+{% extends "base.html" %}
+
+{% block title %}VENTURIX - Lista de Exames Realizados no Centro de Provas{% endblock %}
+
+{% block body_class %}body-apps-list{% endblock %}
+
+{% block header_title %}Lista de Exames Realizados no Centro de Provas{% endblock %}
+
+{% block content %}
+
+<!-- Formulário de busca e filtro -->
+<div class="container-apps-list">
+    <form method="GET" action="{% url 'exam_list' %}" class="apps-list-search-form">
+        {% include 'includes/search_fields.html' %}
+        <!-- Botões de Ação -->
+        <div class="apps-list-btn-group-search">
+            <button type="submit" class="btn-list btn-circle btn-dark"></button>
+            <a class="btn-clear btn-circle btn-purple" href="{% url 'exam_list' %}"></a>
+        </div>
+    </form>
+    <!-- Grupo de botões -->
+    <div class="apps-list-btn-group">
+        <a class="btn-return btn-dark" href="{% url 'testcenter_home' %}">Retornar</a>
+        {# <a class="btn-new btn-dark" href="{% url 'exam_new' %}">Novo</a> #}
+    </div>
+    <!-- Seletor para escolher quantos registros exibir -->
+    {% include "includes/records_per_page_selector.html" with action_url=request.path %}
+    <!-- Contador de registros -->
+    {% include 'includes/record_counter.html' with page_obj=page_obj %}
+    <!-- Paginação da Tabela -->
+    {% include 'includes/pagination.html' with page_obj=page_obj query_params=query_params %}
+    <!-- Tabela de busca -->
+    <div class="ajax-table tb-list" id="ajax-table">
+        {% include 'includes/table.html' %}
+    </div>
+    <!-- Paginação da Tabela -->
+    {% include 'includes/pagination.html' with page_obj=page_obj query_params=query_params %}
+    <!-- Contador de registros -->
+    {% include 'includes/record_counter.html' with page_obj=page_obj %}
+    <!-- Grupo de botões -->
+    <div class="apps-list-btn-group">
+        <a class="btn-return btn-dark" href="{% url 'testcenter_home' %}">Retornar</a>
+        {# <a class="btn-new btn-dark" href="{% url 'exam_new' %}">Novo</a> #}
+    </div>
+</div>
+
+{% endblock %}
