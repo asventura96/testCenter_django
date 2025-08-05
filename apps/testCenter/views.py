@@ -440,7 +440,7 @@ def exam_list(request):
     # Otimização da Consulta
     exams = TestCenterExam.objects.select_related(
         "client",
-        "test_center",
+        "testCenter",
         "certification",
     )
 
