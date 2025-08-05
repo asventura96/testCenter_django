@@ -594,3 +594,124 @@ def exam_list(request):
         return render(request, "includes/table.html", context)
     else:
         return render(request, "testCenters/exams_list.html", context)
+
+
+def exam_detail(request, pk):
+    """
+    View para exibir os detalhes de um Exame Realizado no Centro de Provas.
+    """
+
+    # Obtenção dos Filtros
+    exam = get_object_or_404(TestCenterExam, pk=pk)
+
+    # Mensagem de confirmação de exclusão do Exame
+    message_confirmation_delete = (
+        f'Tem certeza que deseja excluir o Exame <br>'
+        f'<strong>{exam.client.name} - {exam.certification.name}</strong>?'
+    )
+
+    # Preparação dos Dados para o template reutilizável
+    tabs = [
+        {
+            "id": "exam-detail-dados",
+            "class": "btn-detail",
+            "label": "Detalhes",
+        },
+    ]
+
+    sections = [
+        {
+            "id": "exam-detail-dados",
+            "title": "Detalhes do Exame Realizado no Centro de Provas",
+            "active": True,
+            "fields": [
+                {
+                    "label": "ID do Exame",
+                    "value": exam.id,
+                    "label_class": "apps-detail-id-label",
+                    "value_class": "apps-detail-id-value",
+                },
+                {
+                    "label": "Data e Hora do Exame",
+                    "value": exam.date if exam.date else "",
+                    "label_class": "apps-detail-date-label",
+                    "value_class": "apps-detail-date-value",
+                },
+                {
+                    "label": "Cliente",
+                    "value": (
+                        f"{exam.client.uid}: {exam.client.name}"
+                        if exam.client
+                        else "-"
+                    ),
+                },
+                {
+                    "label": "Certificação",
+                    "value": (
+                        exam.certification.name
+                        if exam.certification
+                        else ""
+                    ),
+                },
+                {
+                    "label": "Centro de Provas",
+                    "value": (
+                        exam.test_center.name
+                        if exam.test_center
+                        else ""
+                    ),
+                },
+                {
+                    "label": "Presença Confirmada?",
+                    "value": "Sim" if exam.presence else "Não",
+                },
+                {
+                    "label": "Observações deste Exame",
+                    "value": exam.notes if exam.notes else "",
+                },
+            ],
+        },
+    ]
+
+    buttons = [
+        {
+            "class": "btn-edit",
+            "url": reverse("exam_edit", args=[exam.pk]),
+            "title": "Editar Exame Realizado no Centro de Provas",
+            "aria-label": "Editar Exame Realizado no Centro de Provas",
+        },
+        {
+            "class": "btn-delete",
+            "url": reverse("exam_delete", args=[exam.pk]),
+            "data": {
+                "model": "TestCenterExam",
+                "pk": exam.pk,
+                "redirect-url": reverse("exam_list"),
+            },
+            "title": "Excluir Exame Realizado no Centro de Provas",
+            "aria-label": "Excluir Exame Realizado no Centro de Provas",
+        },
+        {
+            "class": "btn-return",
+            "url": reverse("exam_list"),
+            "title": (
+                "Voltar para a lista de Exames Realizados no Centro de Provas"
+            ),
+            "aria-label": (
+                "Voltar para a lista de Exames Realizados no Centro de Provas"
+            ),
+        },
+    ]
+
+    # Renderização do template
+    return render(
+        request,
+        "testCenters/exams_detail.html",
+        {
+            "exam": exam,
+            "tabs": tabs,
+            "sections": sections,
+            "buttons": buttons,
+            "message_confirmation_delete": message_confirmation_delete,
+        },
+    )
