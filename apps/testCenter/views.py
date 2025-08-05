@@ -4,12 +4,15 @@
 Definição das views para o aplicativo TestCenter.
 """
 
+from datetime import datetime, timedelta
+
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
 from django.db import IntegrityError, DatabaseError
 from django.db.models import Q, ProtectedError
 from django.http import JsonResponse
+from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -418,3 +421,176 @@ def testcenter_delete(request, pk):
             "message_confirmation_delete": message_confirmation_delete,
         }
     )
+
+
+def exam_list(request):
+    """View para listar os Exames Realizados no Centro de Provas."""
+
+    # Obtenção dos Filtros
+    client = request.GET.get("exam-list-client")
+    certification = request.GET.get("exam-list-certification")
+    test_center = request.GET.get("exam-list-testCenter")
+    date_range = request.GET.get("exam-list-dateRange")
+    presence = request.GET.get("exam-list-presence")
+
+    # Ordenação
+    order_by = request.GET.get("order_by", "date")
+    descending = request.GET.get("descending", "False") == "True"
+
+    # Otimização da Consulta
+    exams = TestCenterExam.objects.select_related(
+        "client",
+        "test_center",
+        "certification",
+    )
+
+    # Filtragem
+    if client:
+        exams = exams.filter(client__uid=client)
+
+    if certification:
+        exams = exams.filter(certification__id=certification)
+
+    if test_center:
+        exams = exams.filter(testCenter__id=test_center)
+
+    if date_range:
+        try:
+            start_date, end_date = date_range.split(" - ")
+            start_date = datetime.strptime(
+                start_date.strip(),
+                '%d/%m/%Y'
+            ).date()
+            end_date = datetime.strptime(
+                end_date.strip(),
+                '%d/%m/%Y'
+            ).date()
+            end_date += timedelta(days=1)  # Inclui o final do dia
+            exams = exams.filter(date__range=[start_date, end_date])
+        except (ValueError, TypeError):
+            pass
+
+    if presence in ["True", "False"]:
+        exams = exams.filter(presence=(presence == "True"))
+
+    # Aplicação de Filtros da Ordenação
+    if descending:
+        order_by = f"-{order_by}"
+        exams = exams.order_by(order_by)
+
+    # Registros por Página
+    records_per_page = request.GET.get("records_per_page", 20)
+    try:
+        records_per_page = int(records_per_page)
+    except (ValueError, TypeError):
+        records_per_page = 10
+
+    # Paginação
+    paginator = Paginator(exams, records_per_page)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    # Tratamento de Erros na Paginação
+    try:
+        page_obj = paginator.get_page(page_number)
+    except (ValueError, TypeError):
+        page_obj = paginator.get_page(1)
+
+    # Busca e Ordenação das Opções de Seleção
+    clients = Client.objects.order_by("name")
+    certifications = Certification.objects.order_by("name")
+    test_centers = TestCenter.objects.order_by("name")
+
+    # Definição dos Campos de Pesquisa
+    search_fields = [
+        {
+            "type": "daterange",
+            "id": "exam-list-dateRange",
+            "name": "exam-list-dateRange",
+            "label": "Período de Realização do Exame",
+            "value": request.GET.get("date_range", ""),
+        },
+        {
+            "id": "exam-list-client",
+            "name": "exam-list-client",
+            "label": "Cliente",
+            "type": "select",
+            "options": [
+                (
+                    client.uid,
+                    f"{client.uid}: {client.name}"
+                ) for client in clients
+            ],
+            "selected": request.GET.get("client", ""),
+        },
+        {
+            "id": "exam-list-certification",
+            "name": "exam-list-certification",
+            "label": "Certificação",
+            "type": "select",
+            "options": [
+                (
+                    certification.id,
+                    f"{certification.name}({certification.examCode})"
+                ) for certification in certifications
+            ],
+            "selected": request.GET.get("certification", ""),
+        },
+        {
+            "id": "exam-list-testCenter",
+            "name": "exam-list-testCenter",
+            "label": "Centro de Provas",
+            "type": "select",
+            "options": [
+                (
+                    test_center.id,
+                    test_center.name
+                ) for test_center in test_centers
+            ],
+            "selected": request.GET.get("test_center", ""),
+        },
+        {
+            "id": "exam-list-presence",
+            "name": "exam-list-presence",
+            "label": "Presença Confirmada?",
+            "type": "select",
+            "options": [("True", "Sim"), ("False", "Não")],
+            "selected": request.GET.get("presence", ""),
+        },
+    ]
+
+    context = {
+        "exams": exams,
+        "page_obj": page_obj,
+        "search_fields": search_fields,
+        "query_params": request.GET.urlencode(),
+        "headers": [
+            {"field": "date", "label": "Data e Hora do Exame"},
+            {"field": "client__name", "label": "Cliente"},
+            {"field": "certification__name", "label": "Certificação"},
+            {"field": "test_center__name", "label": "Centro de Provas"},
+            {"field": "presence", "label": "Presença Confirmada"},
+            {"field": "notes", "label": "Observações"},
+        ],
+        "rows": [
+            [
+                timezone.localtime(exam.date).strftime("%d/%m/%Y %H:%M"),
+                mark_safe(
+                    f'<a href="{reverse(
+                        "exam_detail",
+                        args=[exam.id]
+                    )}">'
+                    f'{exam.client.name if exam.client else ""}</a>'
+                ),
+                exam.certification.name if exam.certification else "",
+                exam.test_center.name if exam.test_center else "",
+                "Sim" if exam.presence else "Não",
+            ]
+            for exam in page_obj
+        ],
+    }
+
+    if request.headers.get("x-requested-with") == "XMLHttpRequest":
+        return render(request, "includes/table.html", context)
+    else:
+        return render(request, "testCenters/exams_list.html", context)
