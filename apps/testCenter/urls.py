@@ -15,6 +15,7 @@ urlpatterns = [
         views.testcenter_home,
         name="testcenter_home"
     ),
+
     # URLs de Centros de Provas
     path("testCenter/list/", views.testcenter_list, name="testcenter_list"),
     path(
@@ -36,5 +37,12 @@ urlpatterns = [
         "testCenter/<int:pk>/delete/",
         views.testcenter_delete,
         name="testcenter_delete"
+    ),
+
+    # URLs de Exames Realizados no Centro de Provas
+    path(
+        "exams/",
+        views.exam_list,
+        name="exam_list"
     ),
 ]
