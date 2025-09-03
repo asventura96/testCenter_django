@@ -92,6 +92,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "venturix_testCenter.middleware.LoginRequiredMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 # Configuração dos templates (TEMPLATES)
@@ -202,6 +203,7 @@ SESSION_COOKIE_SAMESITE = (
 
 # Configuração do STATIC_ROOT para produção
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Configuração do CSP (Content Security Policy)
 CONTENT_SECURITY_POLICY = {
