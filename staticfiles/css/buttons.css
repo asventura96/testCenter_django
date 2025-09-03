@@ -1,0 +1,283 @@
+/* BOTÕES */
+
+.btn-group {
+    margin: 10px;
+    text-align: right;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group-center {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-home,
+.btn-first,
+.btn-last,
+.btn-previous,
+.btn-next,
+.btn-new,
+.btn-list,
+.btn-reports,
+.btn-save,
+.btn-edit,
+.btn-delete,
+.btn-return,
+.btn-confirm,
+.btn-cancel,
+.btn-close,
+.btn-clear,
+.btn-access,
+.btn-exit,
+.btn-reset,
+.btn-excel,
+.btn-pdf {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #FF8D37;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-home:hover,
+.btn-first:hover,
+.btn-last:hover,
+.btn-previous:hover,
+.btn-next:hover,
+.btn-new:hover,
+.btn-list:hover,
+.btn-reports:hover,
+.btn-save:hover,
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-return:hover,
+.btn-confirm:hover,
+.btn-cancel:hover,
+.btn-close:hover,
+.btn-clear:hover,
+.btn-access:hover,
+.btn-exit:hover,
+.btn-reset:hover,
+.btn-excel:hover,
+.btn-pdf:hover {
+    background-color: #89D6FB;
+}
+
+.btn-home::before,
+.btn-first::before,
+.btn-last::before,
+.btn-previous::before,
+.btn-next::before,
+.btn-new::before, 
+.btn-list::before, 
+.btn-reports::before,
+.btn-save::before,
+.btn-edit::before,
+.btn-delete::before,
+.btn-return::before,
+.btn-confirm::before,
+.btn-cancel::before,
+.btn-close::before,
+.btn-clear::before,
+.btn-access::before,
+.btn-exit::before,
+.btn-pdf::before,
+.btn-excel::before,
+.btn-reset::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+/* Códigos dos ícones para cada botão */
+.btn-home::before {content: "\f015";}
+.btn-first::before {content: "\f049";}
+.btn-last::before {content: "\f050";}
+.btn-previous::before {content: "\f048";}
+.btn-next::before {content: "\f051";}
+.btn-new::before { content: "\2b"; }
+.btn-list::before { content: "\f002"; }
+.btn-reports::before { content: "\f56c"; }
+.btn-save::before { content: "\f0c7"; }
+.btn-edit::before { content: "\f044"; }
+.btn-delete::before { content: "\f1f8"; }
+.btn-return::before { content: "\f060"; }
+.btn-confirm::before { content: "\f00c"; }
+.btn-cancel::before { content: "\f05e"; }
+.btn-close::before { content: "\f00d"; }
+.btn-clear::before { content: "\f55a"; }
+.btn-access::before { content: "\f2f6"; }
+.btn-exit::before { content: "\f2f5"; }
+.btn-pdf::before { content: "\f1c1"; }
+.btn-excel::before { content: "\f1c3"; }
+.btn-reset::before { content: "\f2f9"; }
+
+/* Botões dos Apps */
+.btn-address, /* Botão de Endereço */
+.btn-budget, /* Botão de Propostas Comerciais / Orçamentos */
+.btn-calendar, /* Botão de Calendário */
+.btn-certification, /* Botão de Certificação */
+.btn-certifier, /* Botão de Certificador */
+.btn-checks, /* Botão de Verificações */
+.btn-class, /* Botão de Turma */
+.btn-company, /* Botão de Empresa */
+.btn-contact, /* Botão de Contato */
+.btn-course, /* Botão de Curso */
+.btn-detail, /* Botão de Detalhe */
+.btn-finance, /* Botão de Financeiro */
+.btn-invoice, /* Botão de Nota Fiscal */
+.btn-invoice-dollar, /* Botão de Invoice ($) */
+.btn-package, /* Botão de Pacotes */
+.btn-student, /* Botão de Aluno */
+.btn-teacher, /* Botão de Instrutor */
+.btn-testCenter, /* Botão de Centro de Provas */
+.btn-trainingBlocks, /* Botão de Training Blocks */
+.btn-version, /* Botão de Versões */
+.btn-voucher { /* Botão de Voucher */
+    color: black;
+}
+
+.btn-address::before,
+.btn-budget::before,
+.btn-calendar::before,
+.btn-certification::before,
+.btn-certifier::before,
+.btn-checks::before,
+.btn-class::before,
+.btn-company::before,
+.btn-contact::before,
+.btn-course::before,
+.btn-detail::before,
+.btn-finance::before,
+.btn-invoice::before,
+.btn-invoice-dollar::before,
+.btn-package::before,
+.btn-student::before,
+.btn-teacher::before,
+.btn-testCenter::before,
+.btn-trainingBlocks::before,
+.btn-version::before,
+.btn-voucher::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+.btn-address::before {content: "\f5a0";}
+.btn-budget::before {content: "\f15c";}
+.btn-calendar::before {content: "\f073";}
+.btn-certification::before {content: "\f0a3";}
+.btn-certifier::before {content: "\f4fc";}
+.btn-checks::before {content: "\f058";}
+.btn-class::before {content: "\f0c0";}
+.btn-company::before {content: "\f1ad";}
+.btn-contact::before {content: "\f2b9";}
+.btn-course::before {content: "\f02d";}
+.btn-detail::before {content: "\f05a";}
+.btn-finance::before {content: "\f555";}
+.btn-invoice::before {content: "\f570";}
+.btn-invoice-dollar::before {content: "\f571";}
+.btn-package::before {content: "\f187";}
+.btn-student::before {content: "\f501";}
+.btn-teacher::before {content: "\f51c";}
+.btn-testCenter::before {content: "\f549";}
+.btn-trainingBlocks::before {content: "\e4e6";}
+.btn-version::before {content: "\f126";}
+.btn-voucher::before {content: "\f145";}
+
+/* Estilo para botões circulares */
+.btn-circle {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: none;
+}
+
+.btn-circle::before {
+    margin-right: 0;
+}
+
+/* Estilo para botões quadrados */
+.btn-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.btn-square::before {
+    margin-right: 0;
+}
+
+/* Estilo para botões para fundos pretos */
+.btn-dark {
+    background-color: #2ECC40;
+    color: black;
+}
+
+.btn-dark:hover {
+    background-color: #89D6FB;
+}
+
+/* Estilo para botões amarelos (#FF8D37) */
+.btn-orange {
+    background-color: #FF8D37;
+    color: black;
+}
+
+.btn-orange:hover {
+    background-color: #D4F0FC;
+    color: black;
+}
+
+/* Estilo para botões amarelos (#5D3FD3) */
+.btn-purple {
+    background-color: #5D3FD3;
+    color: white;
+}
+
+.btn-purple:hover {
+    background-color: #FF8D37;
+    color: black;
+}
+
+/* Estilo para botões transparentes */
+.btn-transparent {
+    background-color: transparent;
+    color: #5D3FD3;
+}
+
+.btn-transparent:hover {
+    background-color: transparent;
+    color: #FF8D37;
+}
+
+/* Estilo para botões inativos */
+.btn-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

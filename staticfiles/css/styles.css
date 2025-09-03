@@ -1,0 +1,21 @@
+/* IMPORTAÇÃO DE FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Montserrat&display=swap');
+
+/* IMPORTAR O CSS DO SELECT2 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css');
+
+/* -----XXX-----XXX-----XXX-----XXX-----XXX----- */
+
+/* TÍTULOS E SUBTÍTULOS DAS PÁGINAS */
+.page-subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #023047;
+    background-color: #2ECC40;
+}
+
+/* ATALHOS DO ACCESSKEY */
+.accesskey {
+    text-decoration: underline;
+}
