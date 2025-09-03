@@ -146,32 +146,39 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "login"
 
 # Configurações de logging
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "level": "DEBUG",
-            "class": "logging.StreamHandler",
+if os.getenv("VERCEL", None):  # variável que o Vercel injeta
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+            },
         },
-        "file": {
-            "level": "ERROR",
-            "class": "logging.FileHandler",
-            "filename": os.path.join(BASE_DIR, "django_errors.log"),
-        },
-    },
-    "loggers": {
-        "django.db.backends": {
+        "root": {
             "handlers": ["console"],
-            "level": "DEBUG" if DEBUG else "INFO",
+            "level": "INFO",
         },
-        "django": {
-            "handlers": ["file"],
-            "level": "ERROR",
-            "propagate": True,
+    }
+else:
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "handlers": {
+            "file": {
+                "level": "ERROR",
+                "class": "logging.FileHandler",
+                "filename": "django_errors.log",
+            },
         },
-    },
-}
+        "loggers": {
+            "django": {
+                "handlers": ["file"],
+                "level": "ERROR",
+                "propagate": True,
+            },
+        },
+    }
 
 # Internacionalização e localização (I18N, L10N, TIME_ZONE)
 LANGUAGE_CODE = "pt-br"
