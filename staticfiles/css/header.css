@@ -1,0 +1,55 @@
+/* CABEÇALHO DO SITE */
+header {
+    background-color: #023047;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Conteúdo do cabeçalho */
+.header-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+/* Container do logo e título */
+.logo-container-header {
+    flex: 0 0 30%;
+}
+
+.page-title {
+    text-align: center;
+    color: white;
+    padding: 6px;
+    margin: 0;
+    flex: 0 0 60%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btn-container-header {
+    flex: 0 0 10%;
+}
+
+/* Logo */
+.logo {
+    max-width: 300px;
+    min-width: 200px;
+    width: 100%;
+    height: auto;
+}
+
+/* Garantir que, se a largura for maior que 100%, os itens quebram automaticamente */
+.header-content > div {
+    flex: 0 0 auto;
+    width: auto;
+}

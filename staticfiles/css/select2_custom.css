@@ -1,0 +1,60 @@
+/* ESTILOS DO SELECT2*/
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-container .select2-selection--single {
+    background-color: white;
+    border: 1px solid #e3e3e1 !important;
+    border-radius: 0px !important;
+    height: 38px !important;
+    line-height: 38px !important;
+    font-family: 'Fredoka', sans-serif !important;
+    font-weight: 400 !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Texto dentro do Select2 */
+.select2-container .select2-selection--single .select2-selection__rendered {
+    color: black !important;
+    line-height: 1.5 !important;
+    padding-left: 10px !important;
+    padding-right: 30px !important;
+    box-sizing: border-box !important;
+}
+
+/* Icone dropdown do Select2 */
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+}
+
+/* Estilo para a área de pesquisa do Select2 */
+.select2-container .select2-dropdown {
+    background-color: white;
+    color: black;
+    border: 1px solid #e3e3e1;
+    border-radius: 0px;
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Estilo para as opções dentro do dropdown */
+.select2-container .select2-results__option {
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* Estilo para a opção selecionada no dropdown */
+.select2-container .select2-results__option--highlighted {
+    background-color: #3FB081 !important;
+    color: black !important;
+}
+
+/* Estilo para o rótulo do Select2 */
+.select-group-search label {
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Fredoka', sans-serif;
+    margin-right: 5px;
+}
