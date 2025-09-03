@@ -34,6 +34,9 @@ VERCEL_URL = os.getenv("VERCEL_URL")
 if VERCEL_URL:
     ALLOWED_HOSTS.append(VERCEL_URL)
 
+# Adiciona o domínio customizado
+ALLOWED_HOSTS.append("testcenterdjango.asventura.me")
+
 # Configuração do banco de dados
 DATABASES = {
     "default": {
