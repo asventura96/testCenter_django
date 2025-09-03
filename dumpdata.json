@@ -216,7 +216,7 @@
     "name": "JOAQUIM JOSE DA SILVA XAVIER",
     "country": "Brasil",
     "city": "Pombal / MG",
-    "notes": "Mártir da Inconfidência Mineira",
+    "notes": "Mï¿½rtir da Inconfidï¿½ncia Mineira",
     "idle": false
   }
 },
@@ -237,7 +237,7 @@
   "fields": {
     "name": "MIGUEL DE CERVANTES SAAVEDRA",
     "country": "Espanha",
-    "city": "Alcalá de Henares / Madrid",
+    "city": "Alcalï¿½ de Henares / Madrid",
     "notes": "",
     "idle": false
   }
@@ -247,7 +247,7 @@
   "pk": 10000004,
   "fields": {
     "name": "WILLIAM HENRY GATES III",
-    "country": "Estados Unidos da América",
+    "country": "Estados Unidos da Amï¿½rica",
     "city": "Seattle / Washington",
     "notes": "",
     "idle": false
@@ -258,9 +258,9 @@
   "pk": 10000005,
   "fields": {
     "name": "STEVEN PAUL JOBS",
-    "country": "Estados Unidos da América",
-    "city": "São Francisco / Califórnia",
-    "notes": "O cara que criou a marca da maçã comida",
+    "country": "Estados Unidos da Amï¿½rica",
+    "city": "Sï¿½o Francisco / Califï¿½rnia",
+    "notes": "O cara que criou a marca da maï¿½ï¿½ comida",
     "idle": false
   }
 },
