@@ -21,13 +21,18 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Configuração do modo de depuração (DEBUG) baseado na variável de ambiente
-DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # Configuração dos hosts permitidos (ALLOWED_HOSTS) para produção
 ALLOWED_HOSTS = os.getenv(
     "ALLOWED_HOSTS",
-    default="127.0.0.1,localhost" if DEBUG else "127.0.0.1,localhost"
+    default="127.0.0.1,localhost"
 ).split(",")
+
+# Adiciona o domínio gerado pelo Vercel (se existir)
+VERCEL_URL = os.getenv("VERCEL_URL")
+if VERCEL_URL:
+    ALLOWED_HOSTS.append(VERCEL_URL)
 
 # Configuração do banco de dados
 DATABASES = {
