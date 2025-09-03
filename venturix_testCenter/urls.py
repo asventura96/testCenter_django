@@ -9,6 +9,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
 from .views import delete_item, home
+from apps.utils.views import migrar_dados
 
 urlpatterns = [
     # URL para a interface Administrativa Django
@@ -23,6 +24,7 @@ urlpatterns = [
     path("", include("apps.certifications.urls")),
     path("", include("apps.certifiers.urls")),
     path("", include("apps.testCenter.urls")),
+    path('migrar-dados/', migrar_dados),
     # Path para exclusão de registros
     path("delete/<str:model_name>/<int:pk>/", delete_item, name="delete_item"),
 ]
