@@ -9,6 +9,7 @@ configurações para o banco de dados, aplicativos instalados, middlewares, etc.
 
 import os
 
+import dj_database_url
 from dotenv import load_dotenv
 
 # Definição do diretório base do projeto (BASE_DIR)
@@ -38,15 +39,21 @@ if VERCEL_URL:
 ALLOWED_HOSTS.append("testcenterdjango.asventura.me")
 
 # Configuração do banco de dados
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(
-            BASE_DIR,
-            os.getenv("SQLITE_PATH", default="data/db.sqlite3")
-        ),
+if 'DATABASE_URL' in os.environ:
+    # Conecta ao PostgreSQL no Render
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
     }
-}
+else:
+    # Conecta ao seu banco de dados local com o caminho exato
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, os.getenv(
+                "SQLITE_PATH", default="data/db.sqlite3"
+            ))
+        }
+    }
 
 # Configuração de cache
 CACHES = {
