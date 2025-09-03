@@ -1,0 +1,881 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "sites",
+    "model": "site"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "clients",
+    "model": "client"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "certifiers",
+    "model": "certifier"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "certifications",
+    "model": "certification"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "testCenter",
+    "model": "testcenterexam"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "testCenter",
+    "model": "testcenter"
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "AWS0001",
+  "fields": {
+    "certifier": 2,
+    "name": "AWS Cloud Practitioner",
+    "examCode": "CLF-C02",
+    "duration": 100,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "MCT0001",
+  "fields": {
+    "certifier": 1,
+    "name": "Microsoft Azure AI Fundamentals",
+    "examCode": "AI-900",
+    "duration": 65,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "MCT0002",
+  "fields": {
+    "certifier": 1,
+    "name": "Microsoft Azure Fundamentals",
+    "examCode": "AZ-900",
+    "duration": 65,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "MCT0003",
+  "fields": {
+    "certifier": 1,
+    "name": "Microsoft Azure Data Fundamentals",
+    "examCode": "DP-900",
+    "duration": 65,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "MCT0004",
+  "fields": {
+    "certifier": 1,
+    "name": "Microsoft 365 Fundamentals",
+    "examCode": "MS-900",
+    "duration": 65,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "MCT0005",
+  "fields": {
+    "certifier": 1,
+    "name": "Microsoft Power Platform Fundamentals",
+    "examCode": "PL-900",
+    "duration": 65,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifications.certification",
+  "pk": "MCT0006",
+  "fields": {
+    "certifier": 1,
+    "name": "Microsoft Security, Compliance, and Identity Fundamentals",
+    "examCode": "SC-900",
+    "duration": 65,
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifiers.certifier",
+  "pk": 1,
+  "fields": {
+    "name": "Microsoft Corporation",
+    "abbreviation": "MCT",
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifiers.certifier",
+  "pk": 2,
+  "fields": {
+    "name": "Amazon Web Services, Inc.",
+    "abbreviation": "AWS",
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "certifiers.certifier",
+  "pk": 3,
+  "fields": {
+    "name": "Google LLC",
+    "abbreviation": "GGL",
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10000001,
+  "fields": {
+    "name": "JOAQUIM JOSE DA SILVA XAVIER",
+    "country": "Brasil",
+    "city": "Pombal / MG",
+    "notes": "Mártir da Inconfidência Mineira",
+    "idle": false
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10000002,
+  "fields": {
+    "name": "WILLIAM SHAKESPEARE",
+    "country": "Inglaterra",
+    "city": "Stratford-upon-Avon",
+    "notes": "Lembre-se de Romeu e Julieta",
+    "idle": false
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10000003,
+  "fields": {
+    "name": "MIGUEL DE CERVANTES SAAVEDRA",
+    "country": "Espanha",
+    "city": "Alcalá de Henares / Madrid",
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10000004,
+  "fields": {
+    "name": "WILLIAM HENRY GATES III",
+    "country": "Estados Unidos da América",
+    "city": "Seattle / Washington",
+    "notes": "",
+    "idle": false
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10000005,
+  "fields": {
+    "name": "STEVEN PAUL JOBS",
+    "country": "Estados Unidos da América",
+    "city": "São Francisco / Califórnia",
+    "notes": "O cara que criou a marca da maçã comida",
+    "idle": false
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10000006,
+  "fields": {
+    "name": "LEE BYUNG-CHUL",
+    "country": "Coreia do Sul",
+    "city": "Uiryeong",
+    "notes": "Fundador da Samsung",
+    "idle": false
+  }
+},
+{
+  "model": "testCenter.testcenter",
+  "pk": 1,
+  "fields": {
+    "name": "Pearson VUE",
+    "notes": null,
+    "idle": false
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add site",
+    "content_type": [
+      "sites",
+      "site"
+    ],
+    "codename": "add_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change site",
+    "content_type": [
+      "sites",
+      "site"
+    ],
+    "codename": "change_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete site",
+    "content_type": [
+      "sites",
+      "site"
+    ],
+    "codename": "delete_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view site",
+    "content_type": [
+      "sites",
+      "site"
+    ],
+    "codename": "view_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add client",
+    "content_type": [
+      "clients",
+      "client"
+    ],
+    "codename": "add_client"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change client",
+    "content_type": [
+      "clients",
+      "client"
+    ],
+    "codename": "change_client"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete client",
+    "content_type": [
+      "clients",
+      "client"
+    ],
+    "codename": "delete_client"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view client",
+    "content_type": [
+      "clients",
+      "client"
+    ],
+    "codename": "view_client"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add certifier",
+    "content_type": [
+      "certifiers",
+      "certifier"
+    ],
+    "codename": "add_certifier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change certifier",
+    "content_type": [
+      "certifiers",
+      "certifier"
+    ],
+    "codename": "change_certifier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete certifier",
+    "content_type": [
+      "certifiers",
+      "certifier"
+    ],
+    "codename": "delete_certifier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view certifier",
+    "content_type": [
+      "certifiers",
+      "certifier"
+    ],
+    "codename": "view_certifier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add certification",
+    "content_type": [
+      "certifications",
+      "certification"
+    ],
+    "codename": "add_certification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change certification",
+    "content_type": [
+      "certifications",
+      "certification"
+    ],
+    "codename": "change_certification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete certification",
+    "content_type": [
+      "certifications",
+      "certification"
+    ],
+    "codename": "delete_certification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view certification",
+    "content_type": [
+      "certifications",
+      "certification"
+    ],
+    "codename": "view_certification"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add test center exam",
+    "content_type": [
+      "testCenter",
+      "testcenterexam"
+    ],
+    "codename": "add_testcenterexam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change test center exam",
+    "content_type": [
+      "testCenter",
+      "testcenterexam"
+    ],
+    "codename": "change_testcenterexam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete test center exam",
+    "content_type": [
+      "testCenter",
+      "testcenterexam"
+    ],
+    "codename": "delete_testcenterexam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view test center exam",
+    "content_type": [
+      "testCenter",
+      "testcenterexam"
+    ],
+    "codename": "view_testcenterexam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add test center",
+    "content_type": [
+      "testCenter",
+      "testcenter"
+    ],
+    "codename": "add_testcenter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change test center",
+    "content_type": [
+      "testCenter",
+      "testcenter"
+    ],
+    "codename": "change_testcenter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete test center",
+    "content_type": [
+      "testCenter",
+      "testcenter"
+    ],
+    "codename": "delete_testcenter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view test center",
+    "content_type": [
+      "testCenter",
+      "testcenter"
+    ],
+    "codename": "view_testcenter"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WAyHKRCtZxUaMEhFsDPLCl$tqw/imJJEtNsjxBH0vPELzETYW/XG+tPFVCDruO+d64=",
+    "last_login": "2025-09-03T01:50:10.657Z",
+    "is_superuser": true,
+    "username": "administrator",
+    "first_name": "",
+    "last_name": "",
+    "email": "example@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-05-07T17:26:03.204Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
