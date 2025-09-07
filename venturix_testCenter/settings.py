@@ -9,7 +9,6 @@ configurações para o banco de dados, aplicativos instalados, middlewares, etc.
 
 import os
 
-import dj_database_url
 from dotenv import load_dotenv
 
 # Definição do diretório base do projeto (BASE_DIR)
@@ -39,10 +38,22 @@ if VERCEL_URL:
 ALLOWED_HOSTS.append("testcenterdjango.asventura.me")
 
 # Configuração do banco de dados
-if 'DATABASE_URL' in os.environ:
-    # Conecta ao PostgreSQL no Render
+USE_MYSQL = os.getenv("USE_MYSQL", "false").lower() in ("true", "1", "yes")
+
+if USE_MYSQL:
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": os.getenv("MYSQL_DB", "meu_banco"),
+            "USER": os.getenv("MYSQL_USER", "root"),
+            "PASSWORD": os.getenv("MYSQL_PASSWORD", ""),
+            "HOST": os.getenv("MYSQL_HOST", "localhost"),
+            "PORT": os.getenv("MYSQL_PORT", "3306"),
+            "OPTIONS": {
+                "charset": "utf8mb4",
+                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
+        }
     }
 else:
     # Conecta ao seu banco de dados local com o caminho exato
@@ -54,6 +65,7 @@ else:
             ))
         }
     }
+
 
 # Configuração de cache
 CACHES = {
