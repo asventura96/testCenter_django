@@ -6,17 +6,17 @@ incluindo funcionalidades de backend e integração para aplicações web.
 
 Este guia é focado na instalação e configuração do ambiente de desenvolvimento.
 
-## 🗺️ Índice
+## Índice 🗺️
 
-1. [Pré-requisitos](#pré-requisitos)
-2. [Instalação (Desenvolvimento)](#instalação-desenvolvimento)
-3. [Configuração](#configuração)
+1. [Pré-requisitos](#pre-requisitos)
+2. [Instalação (Desenvolvimento)](#instalacao-desenvolvimento)
+3. [Configuração](#configuracao)
 4. [Executando o Projeto](#executando-o-projeto)
 5. [Estrutura do Projeto](#estrutura-do-projeto)
-6. [Contribuição](#contribuição)
-7. [Licença](#licença)
+6. [Contribuição](#contribuicao)
+7. [Licença](#licenca)
 
-## ✅ Pré-requisitos
+## Pré-requisitos ✅ {#pre-requisitos}
 
 Certifique-se de ter as seguintes ferramentas instaladas:
 
@@ -24,7 +24,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 - [Poetry](https://python-poetry.org/) (Gerenciador de dependências)
 - Banco de dados compatível com Django (ex.: PostgreSQL, MySQL, SQLite)
 
-## 🔧 Instalação (Desenvolvimento)
+## Instalação (Desenvolvimento) 🔧 {#instalacao-desenvolvimento}
 
 1. Clone o repositório:
 
@@ -51,7 +51,7 @@ poetry shell
    *(A partir de agora, todos os comandos `python` ou `django-admin`
    serão executados dentro deste ambiente)*.
 
-## ⚙️ Configuração
+## Configuração ⚙️ {#configuracao}
 
 1. **Variáveis de Ambiente:**
 Este projeto usa um arquivo `.env` para gerenciar variáveis de ambiente
@@ -86,7 +86,7 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-## 🚀 Executando o Projeto
+## Executando o Projeto 🚀 {#executando-o-projeto}
 
 1. Inicie o servidor de desenvolvimento:
 
@@ -97,7 +97,7 @@ python manage.py runserver
 2. Acesse o projeto no seu navegador:
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-## 📦 Estrutura do Projeto
+## Estrutura do Projeto 📦 {#estrutura-do-projeto}
 
 A estrutura segue as boas práticas de um projeto Django, separando a
 configuração (`venturix_testCenter`) dos aplicativos (`apps`).
@@ -124,7 +124,7 @@ testCenter_django/
 └── README.md
 ```
 
-## 🤝 Contribuição
+## Contribuição 🤝 {#contribuicao}
 
 Contribuições são bem-vindas! Siga as etapas abaixo:
 
@@ -134,7 +134,7 @@ Contribuições são bem-vindas! Siga as etapas abaixo:
 4. Faça o push para o branch: `git push origin minha-feature`
 5. Abra um pull request.
 
-## ⚖️ Licença
+## Licença ⚖️ {#licenca}
 
 Este projeto é licenciado sob os termos da **Licença GPL-3.0**.
 
