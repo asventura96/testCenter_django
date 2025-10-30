@@ -8,13 +8,13 @@ Este guia é focado na instalação e configuração do ambiente de desenvolvime
 
 ## Índice 🗺️
 
-1. [Pré-requisitos](#pré-requisitos)
-2. [Instalação (Desenvolvimento)](#instalação-desenvolvimento)
-3. [Configuração](#configuração)
-4. [Executando o Projeto](#executando-o-projeto)
-5. [Estrutura do Projeto](#estrutura-do-projeto)
-6. [Contribuição](#contribuição)
-7. [Licença](#licença)
+1. [Pré-requisitos](#pré-requisitos-)
+2. [Instalação (Desenvolvimento)](#instalação-desenvolvimento-)
+3. [Configuração](#configuração-)
+4. [Executando o Projeto](#executando-o-projeto-)
+5. [Estrutura do Projeto](#estrutura-do-projeto-)
+6. [Contribuição](#contribuição-)
+7. [Licença](#licença-)
 
 ## Pré-requisitos ✅
 
