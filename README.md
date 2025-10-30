@@ -8,15 +8,15 @@ Este guia é focado na instalação e configuração do ambiente de desenvolvime
 
 ## Índice 🗺️
 
-1. [Pré-requisitos](#pre-requisitos)
-2. [Instalação (Desenvolvimento)](#instalacao-desenvolvimento)
-3. [Configuração](#configuracao)
+1. [Pré-requisitos](#pré-requisitos)
+2. [Instalação (Desenvolvimento)](#instalação-desenvolvimento)
+3. [Configuração](#configuração)
 4. [Executando o Projeto](#executando-o-projeto)
 5. [Estrutura do Projeto](#estrutura-do-projeto)
-6. [Contribuição](#contribuicao)
-7. [Licença](#licenca)
+6. [Contribuição](#contribuição)
+7. [Licença](#licença)
 
-## Pré-requisitos ✅ {#pre-requisitos}
+## Pré-requisitos ✅
 
 Certifique-se de ter as seguintes ferramentas instaladas:
 
@@ -24,7 +24,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 - [Poetry](https://python-poetry.org/) (Gerenciador de dependências)
 - Banco de dados compatível com Django (ex.: PostgreSQL, MySQL, SQLite)
 
-## Instalação (Desenvolvimento) 🔧 {#instalacao-desenvolvimento}
+## Instalação (Desenvolvimento) 🔧
 
 1. Clone o repositório:
 
@@ -51,7 +51,7 @@ poetry shell
    *(A partir de agora, todos os comandos `python` ou `django-admin`
    serão executados dentro deste ambiente)*.
 
-## Configuração ⚙️ {#configuracao}
+## Configuração ⚙️
 
 1. **Variáveis de Ambiente:**
 Este projeto usa um arquivo `.env` para gerenciar variáveis de ambiente
