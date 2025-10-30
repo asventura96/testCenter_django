@@ -1,12 +1,14 @@
 # 📦 Gerenciamento de Dependências com Poetry e Exportação para requirements.txt
 
-Este guia documenta o processo de uso do Poetry com Python moderno (3.10+) e a exportação correta para `requirements.txt`.
+Este guia documenta o processo de uso do Poetry com Python moderno (3.10+)
+e a exportação correta para `requirements.txt`.
 
 ---
 
 ## ✅ Pré-requisitos
 
-- Python **3.10** até **3.15** (o seu `pyproject.toml` atual `requires-python = ">=3.10,<4.0"` já cobre isso)
+- Python **3.10** até **3.15**
+(o seu `pyproject.toml` atual `requires-python = ">=3.10,<4.0"` já cobre isso)
 - Poetry **versão 1.2+** (recomendado: `1.7+` ou `2.2+`)
 - Ambiente virtual ativo (`.venv`)
 
@@ -52,7 +54,8 @@ pip install --upgrade poetry
 
 ## 🧩 3. Instalar o plugin `poetry-plugin-export`
 
-Este passo é **obrigatório** desde as versões recentes do Poetry para que o comando `export` exista.
+Este passo é **obrigatório** desde as versões recentes do Poetry
+para que o comando `export` exista.
 
 ```bash
 poetry self add poetry-plugin-export
@@ -62,7 +65,8 @@ poetry self add poetry-plugin-export
 
 ## 📝 4. Ajustar o `pyproject.toml`
 
-Garanta que seu arquivo `pyproject.toml` usa a seção `[project]` para definir a compatibilidade de versão do Python. Isso já permite o uso do Python 3.14 e 3.15.
+Garanta que seu arquivo `pyproject.toml` usa a seção `[project]` para definir a
+compatibilidade de versão do Python. Isso já permite o uso do Python 3.14 e 3.15.
 
 ```toml
 [project]
@@ -116,7 +120,8 @@ poetry export -f requirements.txt --with dev --output requirements.txt --without
 
 ## 📌 Dica Final
 
-Sempre que modificar o `pyproject.toml` ou rodar `poetry add/remove`, execute novamente o comando `poetry export` para manter o `requirements.txt` sincronizado.
+Sempre que modificar o `pyproject.toml` ou rodar `poetry add/remove`, execute
+novamente o comando `poetry export` para manter o `requirements.txt` sincronizado.
 
 ---
 
