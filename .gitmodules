@@ -1,3 +1,6 @@
 [submodule "static/shared-styles"]
 	path = static/shared-styles
 	url = https://github.com/asventura96/estilos-compartilhados.git
+[submodule "docs/wiki"]
+	path = docs/wiki
+	url = https://github.com/asventura96/testCenter_django.wiki.git
