@@ -86,7 +86,7 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-## Executando o Projeto 🚀 {#executando-o-projeto}
+## Executando o Projeto 🚀
 
 1. Inicie o servidor de desenvolvimento:
 
@@ -97,7 +97,7 @@ python manage.py runserver
 2. Acesse o projeto no seu navegador:
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-## Estrutura do Projeto 📦 {#estrutura-do-projeto}
+## Estrutura do Projeto 📦
 
 A estrutura segue as boas práticas de um projeto Django, separando a
 configuração (`venturix_testCenter`) dos aplicativos (`apps`).
@@ -124,7 +124,7 @@ testCenter_django/
 └── README.md
 ```
 
-## Contribuição 🤝 {#contribuicao}
+## Contribuição 🤝
 
 Contribuições são bem-vindas! Siga as etapas abaixo:
 
@@ -134,7 +134,7 @@ Contribuições são bem-vindas! Siga as etapas abaixo:
 4. Faça o push para o branch: `git push origin minha-feature`
 5. Abra um pull request.
 
-## Licença ⚖️ {#licenca}
+## Licença ⚖️
 
 Este projeto é licenciado sob os termos da **Licença GPL-3.0**.
 
