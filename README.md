@@ -51,7 +51,7 @@ poetry shell
    *(A partir de agora, todos os comandos `python` ou `django-admin`
    serão executados dentro deste ambiente)*.
 
-## Configuração ⚙️
+## Configuração 📝
 
 1. **Variáveis de Ambiente:**
 Este projeto usa um arquivo `.env` para gerenciar variáveis de ambiente
@@ -134,7 +134,7 @@ Contribuições são bem-vindas! Siga as etapas abaixo:
 4. Faça o push para o branch: `git push origin minha-feature`
 5. Abra um pull request.
 
-## Licença ⚖️
+## Licença 📜
 
 Este projeto é licenciado sob os termos da **Licença GPL-3.0**.
 
