@@ -20,12 +20,8 @@ dependencies = [
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3"
 pytest-django = "^4.11"
-pylint = "^3.3"
-pylint-django = "^2.6"
-black = "^25.0"
-isort = "^6.0"
-flake8 = "^7.0"
 django-extensions = "^4.1"
+ruff = "^0.14.3"
 
 [build-system]
 requires = ["poetry-core>=1.8"]
@@ -37,3 +33,22 @@ python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
 
 [tool.poetry]
 package-mode = false
+
+# --- ADICIONE ESTAS SEÇÕES ABAIXO ---
+
+[tool.ruff]
+# Diz ao Ruff qual é a versão mínima do Python do seu projeto
+# Ele usará isso da sua linha 'requires-python' (>=3.10), mas é bom ser explícito.
+target-version = "py310"
+
+[tool.ruff.lint]
+# Seleciona quais regras o Ruff deve aplicar:
+# E, F: Regras básicas (substitui o Flake8)
+# I: Regras de organização de 'import' (substitui o isort)
+# DJ: Regras específicas do Django (substitui o pylint-django)
+select = ["E", "F", "I", "DJ"]
+
+[tool.ruff.format]
+# Esta seção faz o Ruff funcionar como o 'Black' (formatador)
+quote-style = "double"
+line-ending = "auto"
